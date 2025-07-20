@@ -1,0 +1,15 @@
+D:\Wipro_Pre-Training\Student_Grade_Estimator\bin\Debug\net8.0\Student_Grade_Estimator.exe
+D:\Wipro_Pre-Training\Student_Grade_Estimator\bin\Debug\net8.0\Student_Grade_Estimator.deps.json
+D:\Wipro_Pre-Training\Student_Grade_Estimator\bin\Debug\net8.0\Student_Grade_Estimator.runtimeconfig.json
+D:\Wipro_Pre-Training\Student_Grade_Estimator\bin\Debug\net8.0\Student_Grade_Estimator.dll
+D:\Wipro_Pre-Training\Student_Grade_Estimator\bin\Debug\net8.0\Student_Grade_Estimator.pdb
+D:\Wipro_Pre-Training\Student_Grade_Estimator\obj\Debug\net8.0\Student_Grade_Estimator.GeneratedMSBuildEditorConfig.editorconfig
+D:\Wipro_Pre-Training\Student_Grade_Estimator\obj\Debug\net8.0\Student_Grade_Estimator.AssemblyInfoInputs.cache
+D:\Wipro_Pre-Training\Student_Grade_Estimator\obj\Debug\net8.0\Student_Grade_Estimator.AssemblyInfo.cs
+D:\Wipro_Pre-Training\Student_Grade_Estimator\obj\Debug\net8.0\Student_Grade_Estimator.csproj.CoreCompileInputs.cache
+D:\Wipro_Pre-Training\Student_Grade_Estimator\obj\Debug\net8.0\Student_Grade_Estimator.sourcelink.json
+D:\Wipro_Pre-Training\Student_Grade_Estimator\obj\Debug\net8.0\Student_Grade_Estimator.dll
+D:\Wipro_Pre-Training\Student_Grade_Estimator\obj\Debug\net8.0\refint\Student_Grade_Estimator.dll
+D:\Wipro_Pre-Training\Student_Grade_Estimator\obj\Debug\net8.0\Student_Grade_Estimator.pdb
+D:\Wipro_Pre-Training\Student_Grade_Estimator\obj\Debug\net8.0\Student_Grade_Estimator.genruntimeconfig.cache
+D:\Wipro_Pre-Training\Student_Grade_Estimator\obj\Debug\net8.0\ref\Student_Grade_Estimator.dll
