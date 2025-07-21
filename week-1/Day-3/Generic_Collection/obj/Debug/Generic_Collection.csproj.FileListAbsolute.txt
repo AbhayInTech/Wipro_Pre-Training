@@ -1,0 +1,7 @@
+D:\Wipro_Pre-Training\week-1\Day-3\Generic_Collection\bin\Debug\Generic_Collection.exe.config
+D:\Wipro_Pre-Training\week-1\Day-3\Generic_Collection\bin\Debug\Generic_Collection.exe
+D:\Wipro_Pre-Training\week-1\Day-3\Generic_Collection\bin\Debug\Generic_Collection.pdb
+D:\Wipro_Pre-Training\week-1\Day-3\Generic_Collection\obj\Debug\Generic_Collection.csproj.AssemblyReference.cache
+D:\Wipro_Pre-Training\week-1\Day-3\Generic_Collection\obj\Debug\Generic_Collection.csproj.CoreCompileInputs.cache
+D:\Wipro_Pre-Training\week-1\Day-3\Generic_Collection\obj\Debug\Generic_Collection.exe
+D:\Wipro_Pre-Training\week-1\Day-3\Generic_Collection\obj\Debug\Generic_Collection.pdb

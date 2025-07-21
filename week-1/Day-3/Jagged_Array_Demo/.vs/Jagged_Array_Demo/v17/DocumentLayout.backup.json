@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Wipro_Pre-Training\\week-1\\Day-3\\Jagged_Array_Demo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CAB3547A-7C39-46E6-AF17-77B015631617}|Jagged_Array_Demo.csproj|d:\\wipro_pre-training\\week-1\\day-3\\jagged_array_demo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAB3547A-7C39-46E6-AF17-77B015631617}|Jagged_Array_Demo.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Wipro_Pre-Training\\week-1\\Day-3\\Jagged_Array_Demo\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Wipro_Pre-Training\\week-1\\Day-3\\Jagged_Array_Demo\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwBQAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T06:15:45.671Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
