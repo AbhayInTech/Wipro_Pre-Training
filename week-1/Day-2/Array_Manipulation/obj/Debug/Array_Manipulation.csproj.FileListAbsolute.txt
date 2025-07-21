@@ -1,0 +1,8 @@
+D:\Wipro_Pre-Training\week-1\Day-2\Array_Manipulation\bin\Debug\Array_Manipulation.exe.config
+D:\Wipro_Pre-Training\week-1\Day-2\Array_Manipulation\bin\Debug\Array_Manipulation.exe
+D:\Wipro_Pre-Training\week-1\Day-2\Array_Manipulation\bin\Debug\Array_Manipulation.pdb
+D:\Wipro_Pre-Training\week-1\Day-2\Array_Manipulation\obj\Debug\Array_Manipulation.csproj.AssemblyReference.cache
+D:\Wipro_Pre-Training\week-1\Day-2\Array_Manipulation\obj\Debug\Array_Manipulation.csproj.CoreCompileInputs.cache
+D:\Wipro_Pre-Training\week-1\Day-2\Array_Manipulation\obj\Debug\Array_Manipulation.exe
+D:\Wipro_Pre-Training\week-1\Day-2\Array_Manipulation\obj\Debug\Array_Manipulation.pdb
+D:\Wipro_Pre-Training\week-1\Day-2\Array_Manipulation\obj\Debug\Array_Manipulation.exe.config
