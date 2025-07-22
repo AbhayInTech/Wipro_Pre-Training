@@ -1,0 +1,8 @@
+D:\Wipro_Pre-Training\week-1\Day-4\Banking_Eception\bin\Debug\Banking_Eception.exe.config
+D:\Wipro_Pre-Training\week-1\Day-4\Banking_Eception\bin\Debug\Banking_Eception.exe
+D:\Wipro_Pre-Training\week-1\Day-4\Banking_Eception\bin\Debug\Banking_Eception.pdb
+D:\Wipro_Pre-Training\week-1\Day-4\Banking_Eception\obj\Debug\Banking_Eception.csproj.AssemblyReference.cache
+D:\Wipro_Pre-Training\week-1\Day-4\Banking_Eception\obj\Debug\Banking_Eception.csproj.CoreCompileInputs.cache
+D:\Wipro_Pre-Training\week-1\Day-4\Banking_Eception\obj\Debug\Banking_Eception.exe
+D:\Wipro_Pre-Training\week-1\Day-4\Banking_Eception\obj\Debug\Banking_Eception.pdb
+D:\Wipro_Pre-Training\week-1\Day-4\Banking_Eception\obj\Debug\Banking_Eception.exe.config

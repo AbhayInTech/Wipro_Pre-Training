@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Wipro_Pre-Training\\week-1\\Day-4\\Banking_Eception\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{34445C98-15FC-4992-BA95-56DFB53EACAB}|Banking_Eception.csproj|d:\\wipro_pre-training\\week-1\\day-4\\banking_eception\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34445C98-15FC-4992-BA95-56DFB53EACAB}|Banking_Eception.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34445C98-15FC-4992-BA95-56DFB53EACAB}|Banking_Eception.csproj|d:\\wipro_pre-training\\week-1\\day-4\\banking_eception\\bankaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34445C98-15FC-4992-BA95-56DFB53EACAB}|Banking_Eception.csproj|solutionrelative:bankaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34445C98-15FC-4992-BA95-56DFB53EACAB}|Banking_Eception.csproj|d:\\wipro_pre-training\\week-1\\day-4\\banking_eception\\insufficientbalanceexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34445C98-15FC-4992-BA95-56DFB53EACAB}|Banking_Eception.csproj|solutionrelative:insufficientbalanceexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BankAccount.cs",
+              "DocumentMoniker": "D:\\Wipro_Pre-Training\\week-1\\Day-4\\Banking_Eception\\BankAccount.cs",
+              "RelativeDocumentMoniker": "BankAccount.cs",
+              "ToolTip": "D:\\Wipro_Pre-Training\\week-1\\Day-4\\Banking_Eception\\BankAccount.cs",
+              "RelativeToolTip": "BankAccount.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA2wBkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T10:13:42.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InsufficientBalanceException.cs",
+              "DocumentMoniker": "D:\\Wipro_Pre-Training\\week-1\\Day-4\\Banking_Eception\\InsufficientBalanceException.cs",
+              "RelativeDocumentMoniker": "InsufficientBalanceException.cs",
+              "ToolTip": "D:\\Wipro_Pre-Training\\week-1\\Day-4\\Banking_Eception\\InsufficientBalanceException.cs",
+              "RelativeToolTip": "InsufficientBalanceException.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAABwAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T09:46:35.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Wipro_Pre-Training\\week-1\\Day-4\\Banking_Eception\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Wipro_Pre-Training\\week-1\\Day-4\\Banking_Eception\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAswBMAAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T09:44:28.731Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+D:\Wipro_Pre-Training\week-1\Day-3\Class_and_Object\bin\Debug\Class_and_Object.exe.config
+D:\Wipro_Pre-Training\week-1\Day-3\Class_and_Object\bin\Debug\Class_and_Object.exe
+D:\Wipro_Pre-Training\week-1\Day-3\Class_and_Object\bin\Debug\Class_and_Object.pdb
+D:\Wipro_Pre-Training\week-1\Day-3\Class_and_Object\obj\Debug\Class_and_Object.csproj.AssemblyReference.cache
+D:\Wipro_Pre-Training\week-1\Day-3\Class_and_Object\obj\Debug\Class_and_Object.csproj.CoreCompileInputs.cache
+D:\Wipro_Pre-Training\week-1\Day-3\Class_and_Object\obj\Debug\Class_and_Object.exe
+D:\Wipro_Pre-Training\week-1\Day-3\Class_and_Object\obj\Debug\Class_and_Object.pdb
