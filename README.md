@@ -14,3 +14,8 @@ Day-3
 content and the code is updated in the week three folder
 on 21-07-2025
 consist of code related to jagged array, different generic functions like list, stack and queue.
+
+Day-4
+content and the code is updated in the week four folder
+on 22-07-2025
+consist of code related to the concepts of OOPs, also consist of exception handling and the file handling coding solution for better understanding.
