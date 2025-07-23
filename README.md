@@ -19,3 +19,8 @@ Day-4
 content and the code is updated in the week four folder
 on 22-07-2025
 consist of code related to the concepts of OOPs, also consist of exception handling and the file handling coding solution for better understanding.
+
+Day-5
+content and the code is updated in the week five folder
+on 23-07-2025
+consist of code related to file handling, operator overloading, file I/O operations , delegates coding soolutin for better understanding of concepts.
