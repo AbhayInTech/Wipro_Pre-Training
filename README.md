@@ -24,3 +24,8 @@ Day-5
 content and the code is updated in the week five folder
 on 23-07-2025
 consist of code related to file handling, operator overloading, file I/O operations , delegates coding soolutin for better understanding of concepts.
+
+Day-6
+content and the code is updated in the week six folder
+on 24-07-2025
+consist of code related to file handling, pattern matching and collection of objects using list.
