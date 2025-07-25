@@ -1,0 +1,7 @@
+D:\Wipro_Pre-Training\week-1\Day-4\Indexer_Demo\bin\Debug\Indexer_Demo.exe.config
+D:\Wipro_Pre-Training\week-1\Day-4\Indexer_Demo\bin\Debug\Indexer_Demo.exe
+D:\Wipro_Pre-Training\week-1\Day-4\Indexer_Demo\bin\Debug\Indexer_Demo.pdb
+D:\Wipro_Pre-Training\week-1\Day-4\Indexer_Demo\obj\Debug\Indexer_Demo.csproj.AssemblyReference.cache
+D:\Wipro_Pre-Training\week-1\Day-4\Indexer_Demo\obj\Debug\Indexer_Demo.csproj.CoreCompileInputs.cache
+D:\Wipro_Pre-Training\week-1\Day-4\Indexer_Demo\obj\Debug\Indexer_Demo.exe
+D:\Wipro_Pre-Training\week-1\Day-4\Indexer_Demo\obj\Debug\Indexer_Demo.pdb
