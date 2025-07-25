@@ -29,3 +29,8 @@ Day-6
 content and the code is updated in the week six folder
 on 24-07-2025
 consist of code related to file handling, pattern matching and collection of objects using list.
+
+Day-7
+content and the code is updated in the week seven folder
+on 25-07-2025
+consist of code related to delegates, async, await, reflection and standard C# features.
