@@ -1,0 +1,21 @@
+﻿<center>
+<h1>Welcome to the Web App</h1>
+<p>This is the home page of your web application.</p>
+<label for="iName">Enter your Name to Display it 5 times</label>
+<input type="text" id="iName" placeholder="Name" />
+    <button onclick="repeate()">Display Name</button>
+    <p id="pName"></p>
+
+
+</center>
+<script>
+    function repeate(){
+    var a=document.getElementById("iName").value;
+    var b=a+"  "+a+"  "+a+"  "+a+"  "+a;
+    var c=document.getElementById("pName");
+    c.innerText=b;
+    c.style.color="red";
+
+
+    };
+</script>
