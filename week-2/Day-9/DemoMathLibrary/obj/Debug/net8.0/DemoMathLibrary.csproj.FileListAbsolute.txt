@@ -1,0 +1,15 @@
+D:\Wipro_Pre-Training\week-2\Day-9\DemoMathLibrary\bin\Debug\net8.0\DemoMathLibrary.exe
+D:\Wipro_Pre-Training\week-2\Day-9\DemoMathLibrary\bin\Debug\net8.0\DemoMathLibrary.deps.json
+D:\Wipro_Pre-Training\week-2\Day-9\DemoMathLibrary\bin\Debug\net8.0\DemoMathLibrary.runtimeconfig.json
+D:\Wipro_Pre-Training\week-2\Day-9\DemoMathLibrary\bin\Debug\net8.0\DemoMathLibrary.dll
+D:\Wipro_Pre-Training\week-2\Day-9\DemoMathLibrary\bin\Debug\net8.0\DemoMathLibrary.pdb
+D:\Wipro_Pre-Training\week-2\Day-9\DemoMathLibrary\obj\Debug\net8.0\DemoMathLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\Wipro_Pre-Training\week-2\Day-9\DemoMathLibrary\obj\Debug\net8.0\DemoMathLibrary.AssemblyInfoInputs.cache
+D:\Wipro_Pre-Training\week-2\Day-9\DemoMathLibrary\obj\Debug\net8.0\DemoMathLibrary.AssemblyInfo.cs
+D:\Wipro_Pre-Training\week-2\Day-9\DemoMathLibrary\obj\Debug\net8.0\DemoMathLibrary.csproj.CoreCompileInputs.cache
+D:\Wipro_Pre-Training\week-2\Day-9\DemoMathLibrary\obj\Debug\net8.0\DemoMathLibrary.sourcelink.json
+D:\Wipro_Pre-Training\week-2\Day-9\DemoMathLibrary\obj\Debug\net8.0\DemoMathLibrary.dll
+D:\Wipro_Pre-Training\week-2\Day-9\DemoMathLibrary\obj\Debug\net8.0\refint\DemoMathLibrary.dll
+D:\Wipro_Pre-Training\week-2\Day-9\DemoMathLibrary\obj\Debug\net8.0\DemoMathLibrary.pdb
+D:\Wipro_Pre-Training\week-2\Day-9\DemoMathLibrary\obj\Debug\net8.0\DemoMathLibrary.genruntimeconfig.cache
+D:\Wipro_Pre-Training\week-2\Day-9\DemoMathLibrary\obj\Debug\net8.0\ref\DemoMathLibrary.dll
