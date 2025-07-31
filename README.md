@@ -43,3 +43,18 @@ Day-9
 content and the code is updated in the week two folder
 on 28-07-2025
 consist of code related to different Testing Methods like NUnit , MSTest and XUnit.
+
+Day-10
+content and the code is updated in the week two folder
+on 29-07-2025
+consist of code related to ASP.NET and use of MVC (Model View Controller) in .NET to create web App.
+
+Day-11
+content and the code is updated in the week two folder
+on 30-07-2025
+consist of code related to SOLID, starting with database.
+
+Day-12
+content and the code is updated in the week two folder
+on 31-07-2025
+consist of code related to database different concepts including DDL, DML, DCL etc. also includes function, different Joins, Procedure, Transaction, etc.
