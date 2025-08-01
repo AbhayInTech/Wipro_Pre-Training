@@ -1,0 +1,14 @@
+C:\Users\supri\source\repos\Wipro_C#\Week2_Testing Modules\Day 11 code assessment\DesignPatternAssignment-2\bin\Debug\net8.0\DesignPatternAssignment-2.exe
+C:\Users\supri\source\repos\Wipro_C#\Week2_Testing Modules\Day 11 code assessment\DesignPatternAssignment-2\bin\Debug\net8.0\DesignPatternAssignment-2.deps.json
+C:\Users\supri\source\repos\Wipro_C#\Week2_Testing Modules\Day 11 code assessment\DesignPatternAssignment-2\bin\Debug\net8.0\DesignPatternAssignment-2.runtimeconfig.json
+C:\Users\supri\source\repos\Wipro_C#\Week2_Testing Modules\Day 11 code assessment\DesignPatternAssignment-2\bin\Debug\net8.0\DesignPatternAssignment-2.dll
+C:\Users\supri\source\repos\Wipro_C#\Week2_Testing Modules\Day 11 code assessment\DesignPatternAssignment-2\bin\Debug\net8.0\DesignPatternAssignment-2.pdb
+C:\Users\supri\source\repos\Wipro_C#\Week2_Testing Modules\Day 11 code assessment\DesignPatternAssignment-2\obj\Debug\net8.0\DesignPatternAssignment-2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\supri\source\repos\Wipro_C#\Week2_Testing Modules\Day 11 code assessment\DesignPatternAssignment-2\obj\Debug\net8.0\DesignPatternAssignment-2.AssemblyInfoInputs.cache
+C:\Users\supri\source\repos\Wipro_C#\Week2_Testing Modules\Day 11 code assessment\DesignPatternAssignment-2\obj\Debug\net8.0\DesignPatternAssignment-2.AssemblyInfo.cs
+C:\Users\supri\source\repos\Wipro_C#\Week2_Testing Modules\Day 11 code assessment\DesignPatternAssignment-2\obj\Debug\net8.0\DesignPatternAssignment-2.csproj.CoreCompileInputs.cache
+C:\Users\supri\source\repos\Wipro_C#\Week2_Testing Modules\Day 11 code assessment\DesignPatternAssignment-2\obj\Debug\net8.0\DesignPatternAssignment-2.dll
+C:\Users\supri\source\repos\Wipro_C#\Week2_Testing Modules\Day 11 code assessment\DesignPatternAssignment-2\obj\Debug\net8.0\refint\DesignPatternAssignment-2.dll
+C:\Users\supri\source\repos\Wipro_C#\Week2_Testing Modules\Day 11 code assessment\DesignPatternAssignment-2\obj\Debug\net8.0\DesignPatternAssignment-2.pdb
+C:\Users\supri\source\repos\Wipro_C#\Week2_Testing Modules\Day 11 code assessment\DesignPatternAssignment-2\obj\Debug\net8.0\DesignPatternAssignment-2.genruntimeconfig.cache
+C:\Users\supri\source\repos\Wipro_C#\Week2_Testing Modules\Day 11 code assessment\DesignPatternAssignment-2\obj\Debug\net8.0\ref\DesignPatternAssignment-2.dll
