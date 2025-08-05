@@ -3,57 +3,285 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my first web page</title>
+    <title>Abhay Rana | Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat", Arial, sans-serif;
+        background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        color: #222;
+      }
+      .container {
+        max-width: 700px;
+        margin: 40px auto;
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px rgba(44, 62, 80, 0.12);
+        padding: 32px 40px;
+        text-align: center;
+      }
+      header h1 {
+        color: black;
+        margin-bottom: 16px;
+        font-size: 2.5em;
+        letter-spacing: 1px;
+      }
+      section h2 {
+        color: #1d3557;
+        margin-top: 32px;
+        margin-bottom: 12px;
+        font-size: 1.5em;
+      }
+      img.profile {
+        border-radius: 50%;
+        border: 4px solid black;
+        box-shadow: 0 4px 16px rgba(44, 62, 80, 0.1);
+        margin-bottom: 18px;
+        transition: transform 0.3s;
+      }
+      img.profile:hover {
+        transform: scale(1.05);
+      }
+      p {
+        font-size: 1.08em;
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 24px 0;
+      }
+      ul li {
+        background: #eaf4fe;
+        margin: 8px 0;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-size: 1.08em;
+        transition: background 0.2s;
+      }
+      ul li:hover {
+        background: #d0e2fd;
+      }
+      ul li.project {
+        position: relative;
+        cursor: pointer;
+      }
+      ul li.project .desc {
+        display: none;
+        position: flex;
+        left: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #1d3557;
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.12);
+        white-space: nowrap;
+        z-index: 1;
+        margin-left: 16px;
+        font-size: 0.98em;
+      }
+      ul li.project:hover .desc {
+        display: block;
+        animation: fadeIn 0.3s;
+      }
+      .social {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 24px;
+        flex-wrap: wrap;
+      }
+      .social-card {
+        background: #f7fafd;
+        border-radius: 12px;
+        padding: 16px 24px;
+        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: box-shadow 0.2s;
+      }
+      .social-card:hover {
+        box-shadow: 0 4px 16px rgba(44, 62, 80, 0.14);
+      }
+      .social-card img {
+        margin-bottom: 8px;
+      }
+      .social-card a {
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.08em;
+        transition: color 0.2s;
+      }
+      .social-card a:hover {
+        color: #1d3557;
+        text-decoration: underline;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-60%);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(-50%);
+        }
+      }
+      @media (max-width: 600px) {
+        .container {
+          padding: 24px;
+        }
+        .social {
+          gap: 20px;
+        }
+      }
+      .contact {
+        margin-top: 32px;
+        background: #f0f4f8;
+        padding: 24px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+      }
+      .contact label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+      .contact #submit {
+        background: #1d3557;
+        color: #fff;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.08em;
+        transition: background 0.2s, transform 0.2s;
+      }
+    </style>
   </head>
   <body>
-    <center>
-      <h1>Welcome to my Portfolio based Website</h1>
-      <img
-        src="https://media.licdn.com/dms/image/v2/D5603AQFCANsub-sW0Q/profile-displayphoto-shrink_400_400/B56ZP7tV4BGQAk-/0/1735094788327?e=1757548800&v=beta&t=QAPN7dSbVArm7PhibanUHHmczbtuc5sBIKyb-uEpDFM"
-        alt="Abhay Rana"
-        width="200"
-        height="200"
-        style="border-radius: 50%"
-      />
-      <p>
-        I am Abhay Rana, a student at the University of Delhi, pursuing a BCA. I
-        am passionate about mathematics and computer science, and I enjoy
-        exploring new technologies and programming languages. This website
-        serves as a portfolio to showcase my projects, skills, and interests in
-        the field of mathematics and technology.
-      </p>
-      <h2>My Skills</h2>
-      <ul>
-        <li>Project 1: Calculator</li>
-        <li>Project 2: To-Do List App</li>
-        <li>Project 3: Personal Blog</li>
-        <li>Project 4: Portfolio Website</li>
-        <li>Project 5: Weather App</li>
-      </ul>
-      <p>
-        Visit my Linkedin Profile
+    <div class="container">
+      <header>
+        <h1>Welcome to my Portfolio Website</h1>
         <img
-          src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-          alt="Linkedin Logo"
-          width="50"
-          height="50"
+          src="https://media.licdn.com/dms/image/v2/D5603AQFCANsub-sW0Q/profile-displayphoto-shrink_400_400/B56ZP7tV4BGQAk-/0/1735094788327?e=1757548800&v=beta&t=QAPN7dSbVArm7PhibanUHHmczbtuc5sBIKyb-uEpDFM"
+          alt="Profile photo of Abhay Rana"
+          width="200"
+          height="200"
+          class="profile"
         />
-        <br />
-        <a href="https://www.linkedin.com/in/abhay-rana-5664952a6/">
-          Click Me!
-        </a>
-      </p>
+      </header>
       <p>
-        Visit my GitHub Profile
-        <img
-          src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-          alt="GitHub Logo"
-          width="50"
-          height="50"
-        />
-        <br />
-        <a href="https://github.com/AbhayInTech"> Click Me! </a>
+        I am <strong>Abhay Rana</strong>, a student at Aryabhatta Knowledge
+        University, pursuing a BCA.<br />
+        Passionate about mathematics and computer science, I enjoy exploring new
+        technologies and programming languages.<br />
+        This website showcases my projects, skills, and interests in mathematics
+        and technology.
       </p>
-    </center>
+      <section>
+        <h2>My Projects</h2>
+        <ul>
+          <li class="project">
+            TestSheet
+            <span class="desc"
+              >TESTSHEET : A secure test management Web App
+            </span>
+          </li>
+          <li class="project">
+            Rentify
+            <span class="desc"
+              >RENTIFY : A Rent Management Web App using MERN
+            </span>
+          </li>
+          <li class="project">
+            Swasthify
+            <span class="desc">
+              SWASTHIFY : A Health Management Application using Flutter
+            </span>
+          </li>
+          <li class="project">
+            AirBnB
+            <span class="desc"
+              >AIRBNB : A Hotel Management Web App using MERN
+            </span>
+          </li>
+        </ul>
+      </section>
+      <section class="social" aria-label="Social Media Links">
+        <div class="social-card">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+            alt="LinkedIn Logo"
+            width="50"
+            height="50"
+          />
+          <a
+            href="https://www.linkedin.com/in/abhay-rana-5664952a6/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn Profile
+          </a>
+        </div>
+        <div class="social-card">
+          <img
+            src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+            alt="GitHub Logo"
+            width="50"
+            height="50"
+          />
+          <a
+            href="https://github.com/AbhayInTech"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub Profile
+          </a>
+        </div>
+      </section>
+      <section class="contact">
+        <form action="https://formspree.io/f/xjvowzqk" method="POST">
+          <h2>Contact Me</h2>
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Your Name"
+          />
+          <br />
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Your Email"
+          />
+          <br />
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            required
+            placeholder="Your Message"
+          ></textarea>
+          <br />
+          <button id="submit" type="submit">Send Message</button>
+        </form>
+      </section>
+    </div>
   </body>
 </html>
