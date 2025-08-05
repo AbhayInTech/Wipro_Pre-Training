@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      form {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        max-width: 500px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 30px;
+        font-size: 2rem;
+      }
+
+      label {
+        display: block;
+        margin-top: 18px;
+        font-weight: 600;
+        color: #34495e;
+        margin-bottom: 6px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="password"],
+      input[type="number"],
+      input[type="date"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9fbfc;
+        font-size: 1rem;
+        transition: border 0.3s;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: #5dade2;
+        outline: none;
+      }
+
+      .inline-group {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .inline-group label {
+        margin: 0;
+      }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+        margin-right: 6px;
+        transform: scale(1.1);
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+        max-height: 160px;
+      }
+
+      input[type="file"] {
+        border: none;
+        padding: 5px;
+        background-color: transparent;
+      }
+
+      input[type="submit"] {
+        margin-top: 30px;
+        width: 100%;
+        padding: 14px;
+        font-size: 1.1rem;
+        background: linear-gradient(90deg, #4caf50, #81c784);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2);
+        transition: background 0.3s ease;
+      }
+
+      input[type="submit"]:hover {
+        background: linear-gradient(90deg, #388e3c, #66bb6a);
+      }
+
+      @media (max-width: 600px) {
+        form {
+          padding: 24px;
+          border-radius: 14px;
+        }
+
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <form action="submit.html" method="post" enctype="multipart/form-data">
+      <h1>Registration Form</h1>
+
+      <label for="fullname">Full Name</label>
+      <input
+        type="text"
+        id="fullname"
+        name="fullname"
+        required
+        placeholder="Enter Your Name"
+      />
+
+      <label for="number">Mob Number</label>
+      <input
+        type="tel"
+        id="phone"
+        name="number"
+        required
+        pattern="[0-9]{10}"
+        placeholder="Enter 10 Digit Mobile Number"
+      />
+
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        placeholder="Enter Your Email"
+      />
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        pattern="^(?=.*[A-Z])(?=.*\d).{8,}$"
+        placeholder="At least 8 char , 1 Uppercase, 1 Number"
+      />
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob" />
+
+      <label>Gender</label>
+      <div class="inline-group">
+        <input type="radio" id="male" name="gender" value="Male" required />
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender" value="Female" />
+        <label for="female">Female</label>
+
+        <input type="radio" id="other" name="gender" value="Other" />
+        <label for="other">Other</label>
+      </div>
+
+      <label>Skills</label>
+      <div class="inline-group">
+        <input type="checkbox" id="html" name="skills[]" value="HTML" />
+        <label for="html">HTML</label>
+
+        <input type="checkbox" id="css" name="skills[]" value="CSS" />
+        <label for="css">CSS</label>
+
+        <input type="checkbox" id="js" name="skills[]" value="JavaScript" />
+        <label for="js">JavaScript</label>
+      </div>
+
+      <!-- 
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+        <option value="Other">Other</option>
+      </select> -->
+
+      <label for="bio">Short Bio</label>
+      <textarea
+        id="bio"
+        name="bio"
+        placeholder="Write a few lines about yourself..."
+      ></textarea>
+
+      <!-- 
+      <label for="resume">Upload Resume</label>
+      <input type="file" id="resume" name="resume" /> -->
+
+      <input type="hidden" name="formType" value="registration" />
+
+      <input type="submit" value="Register" />
+    </form>
+  </body>
+</html>
