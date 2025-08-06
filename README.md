@@ -58,3 +58,23 @@ Day-12
 content and the code is updated in the week two folder
 on 31-07-2025
 consist of code related to database different concepts including DDL, DML, DCL etc. also includes function, different Joins, Procedure, Transaction, etc.
+
+Day-13
+content and the code is updated in the week two folder
+on 1-08-2025
+consist of code related to database mysql queries
+
+Day-14
+content and the code is updated in the week two folder
+on 2-08-2025
+consist of code related to database mysql queries including different Normalization.
+
+Day-15
+content and the code is updated in the week three folder
+on 4-08-2025
+consist of code related to database mysql queries for ECommerce.
+
+Day-16
+content and the code is updated in the week three folder
+on 5-08-2025
+consist of code related to html and css.

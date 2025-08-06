@@ -1,0 +1,68 @@
+/* adding flexbox layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header nav {
+  margin-top: 10px;
+}
+
+header nav a {
+  color: #fff;
+  margin-right: 15px;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+article {
+  flex: 1;
+  min-width: 300px;
+  background: #f4f4f4;
+  padding: 20px;
+  margin-right: 20px;
+}
+
+aside {
+  flex: 1;
+  background: #e4e4e4;
+  padding: 20px;
+  min-width: 200px;
+}
+
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: 120px;
+}
