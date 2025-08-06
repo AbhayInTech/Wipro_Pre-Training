@@ -1,0 +1,146 @@
+body {
+  background: radial-gradient(circle at 20% 10%, #fef9f4 60%, #e0e7ff 100%);
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 32px;
+  min-height: 100vh;
+}
+
+.profile-card {
+  width: 420px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 40px 32px;
+  margin: 48px auto;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.4, 2, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 2, 0.3, 1);
+  border: 1.5px solid #e0e7ff;
+}
+.contact-info {
+  width: 360px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 40px 32px;
+  margin: 48px auto;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.4, 2, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 2, 0.3, 1);
+  border: 1.5px solid #e0e7ff;
+}
+
+.profile-card:hover,
+.contact-info:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 28px 56px rgba(99, 102, 241, 0.18),
+    0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.profile-card::after,
+.contact-info::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  border-radius: 28px 28px 0 0;
+  background: linear-gradient(90deg, #6366f1 0%, #818cf8 50%, #a5b4fc 100%);
+}
+
+.profile-card img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  margin: 0 auto 24px;
+  display: block;
+  border: 4px solid #e0e7ff;
+  background: linear-gradient(135deg, #f3f4f6 60%, #6366f1 100%);
+}
+
+.profile-card h1 {
+  text-align: center;
+  color: #3730a3;
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.profile-card .name {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.profile-card .role {
+  font-size: 1.15rem;
+  color: #6366f1;
+  text-align: center;
+  margin-bottom: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.profile-card .bio {
+  font-size: 1.05rem;
+  color: #64748b;
+  text-align: center;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+.contact-info h2 {
+  text-align: center;
+  color: #3730a3;
+  font-size: 1.7rem;
+  margin-bottom: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.contact-info p {
+  font-size: 1.05rem;
+  color: #334155;
+  margin-bottom: 14px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.contact-info strong {
+  color: #6366f1;
+  font-weight: 600;
+}
+
+.contact-info a {
+  display: inline-block;
+  margin: 0 8px;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #6366f1 60%, #818cf8 100%);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.22);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  text-align: center;
+  line-height: 48px;
+  border: 2px solid #e0e7ff;
+}
+
+.contact-info a:hover {
+  transform: scale(1.13) rotate(-4deg);
+  box-shadow: 0 10px 24px rgba(99, 102, 241, 0.32);
+  background: linear-gradient(135deg, #818cf8 60%, #6366f1 100%);
+}
