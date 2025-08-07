@@ -1,0 +1,25 @@
+For mastering javascript topics : 
+
+Project 1:  Student Registration Portal 
+Bootstrap: Forms, Cards, Layout grid
+JavaScript: Data types, branching, arrays, string functions, validation
+DOM Manipulation: Fetch input, show error messages
+JSON: Create structured payload on submit
+Features : 
+
+Form with fields: name, Email, Phone, Course, gender
+Validation using javascript
+Display confirmation
+Output using data as JSON
+Demo Project 2: Task Manager Web App 
+Bootstrap: Cards, Badges, Buttons, List groups
+JavaScript: Arrays, loops, string manipulation, functions
+Advanced JavaScript: Closures, Date objects
+DOM: Add/Delete DOM elements dynamically
+jQuery (optional): Event delegation
+Features:
+
+Adding tasks with description and due date.
+Mark task as done using a button 
+Deleting task from the list 
+Show task count(Pending/completed)
