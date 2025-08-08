@@ -1,0 +1,15 @@
+@for (product of products; track product.productName) {
+<div class="product-card">
+  <h2 class="product-title">{{ product.productName }}</h2>
+
+  <div class="product-price">Price : Rs{{ product.productPrice }}</div>
+
+  <button
+    (click)="addToCart(products.indexOf(product))"
+    [disabled]="product.addedToCart"
+    class="add-to-cart-button"
+  >
+    {{ product.addedToCart ? "Added to Cart" : "Add to Cart" }}
+  </button>
+</div>
+}

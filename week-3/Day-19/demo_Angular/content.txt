@@ -1,0 +1,6 @@
+npm install @angular/cli
+ng new my-app
+cd my-app
+ng serve
+ng serve--open
+ng generate component hello
