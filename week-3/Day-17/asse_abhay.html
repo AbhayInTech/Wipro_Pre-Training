@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random User Fetch</title>
+  </head>
+  <body>
+    <h1>Random User Information</h1>
+    <button id="fetchUserBtn">Get Random User</button>
+    <div id="userInfo" style="margin-top: 20px"></div>
+
+    <script>
+      document.getElementById("fetchUserBtn").addEventListener("click", () => {
+        fetch("https://randomuser.me/api/")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                "Network response was not ok " + response.statusText
+              );
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const user = data.results[0];
+            const userHtml = `
+                        <p><strong>Name:</strong> ${user.name.first} ${user.name.last}</p>
+                        <p><strong>Email:</strong> ${user.email}</p>
+                        <img src="${user.picture.large}" alt="Profile Picture">
+                    `;
+            document.getElementById("userInfo").innerHTML = userHtml;
+          })
+          .catch((error) => {
+            console.error(
+              "There has been a problem with your fetch operation:",
+              error
+            );
+          });
+      });
+    </script>
+  </body>
+</html>
