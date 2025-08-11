@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   Directive,
   ElementRef,
@@ -45,4 +46,15 @@ export class HighlightDirective {
   }
   // using renderer to avoids direct DOM manipulation
   // Hostlisste=ner reacts to user events like mouseenter and mouseleave
+=======
+import { Directive } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+
+  constructor() { }
+
+>>>>>>> cad057829a00b82a8a1098b48ce57038d63cda17
 }
