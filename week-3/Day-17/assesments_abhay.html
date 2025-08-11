@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch Employee Data</title>
+  </head>
+  <body>
+    <h1>Fetch API - Employee Data</h1>
+    <p>
+      Enter the employee ID and click the button to fetch employee data. Or
+      leave blank to fetch all employees.
+    </p>
+    <input type="number" id="empId" placeholder="Enter Employee ID" />
+    <button id="fetchBtn">Fetch Employee Data</button>
+    <pre id="result"></pre>
+
+    <script>
+      document
+        .getElementById("fetchBtn")
+        .addEventListener("click", function () {
+          const empId = document.getElementById("empId").value.trim();
+          let url = "https://dummy.restapiexample.com/api/v1/employees";
+          if (empId) {
+            url = `https://dummy.restapiexample.com/api/v1/employee/${empId}`;
+          }
+          fetch(url)
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(
+                  "Network response was not ok " + response.statusText
+                );
+              }
+              return response.json();
+            })
+            .then((data) => {
+              document.getElementById("result").textContent = JSON.stringify(
+                data,
+                null,
+                2
+              );
+              console.log("Employee Data:", data);
+            })
+            .catch((error) => {
+              document.getElementById("result").textContent = "Error: " + error;
+              console.error(
+                "There has been a problem with your fetch operation:",
+                error
+              );
+            });
+        });
+    </script>
+  </body>
+</html>

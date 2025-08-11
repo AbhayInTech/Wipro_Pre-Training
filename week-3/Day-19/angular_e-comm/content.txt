@@ -1,0 +1,19 @@
+Step 1: Create a new angular Project ( ng version), choose css for styling 
+
+Step 2:  Create a  component name product-card 
+
+Step 3: Add component to app ie src/app/app.component.html
+
+					<h1>My Store</h1>
+
+<app-product-card></app-product-card>
+
+Step 4: Implement property and Event binding 
+
+	src/app/product-card/product-card.component.ts
+
+ng new my-app
+cd my-app
+ng serve
+ng serve--open
+ng generate component hello
