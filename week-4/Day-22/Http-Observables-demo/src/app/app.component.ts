@@ -6,6 +6,7 @@ import { DataService } from './data.service';
 import { PostsComponent } from './posts/posts.component';
 import { NgFor, NgIf } from '@angular/common';
 import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-root',
   imports: [
