@@ -1,0 +1,20 @@
+<h2>Reactive Form</h2>
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+  <label>
+    Name
+    <input formControlName="name" placeholder="e.g. Jamie" />
+  </label>
+  <div *ngIf="name?.touched && name?.invalid" style="color: #c00">
+    <div *ngIf="name?.errors?.['required']">Name is required.</div>
+    <div *ngIf="name?.errors?.['minlength']">Min length is 3.</div>
+  </div>
+
+  <label>
+    Email <input formControlName="email" placeholder="e.g. jamie@mail.com" />
+  </label>
+  <div *ngIf="email?.touched && email?.invalid" style="color: #c00">
+    <div *ngIf="email?.errors?.['required']">Email is required.</div>
+    <div *ngIf="email?.errors?.['email']">Must be a valid email.</div>
+  </div>
+</form>

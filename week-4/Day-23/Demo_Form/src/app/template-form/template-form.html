@@ -1,0 +1,24 @@
+<h2>Template-Driven Form</h2>
+
+<form #formRef="ngForm" (ngSubmit)="onSubmit(formRef)" novalidate>
+  <label>
+    Username
+    <input
+      name="username"
+      ngModel
+      required
+      minlength="3"
+      placeholder="e.g. alex"
+    />
+  </label>
+
+  <!-- tiny validation display -->
+  <div
+    *ngIf="formRef.submitted && formRef.controls['username']?.invalid"
+    style="color: #c00"
+  >
+    Username is required (min 3 chars).
+  </div>
+
+  <button type="submit" [disabled]="formRef.invalid">Submit</button>
+</form>
