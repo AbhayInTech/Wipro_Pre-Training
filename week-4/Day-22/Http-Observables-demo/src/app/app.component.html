@@ -1,0 +1,9 @@
+<div>
+  Bellow is the root commponent data coming via service
+  <h2>Posts</h2>
+  <ul>
+    <li *ngFor="let post of posts$ | async">
+      {{ post.title }}
+    </li>
+  </ul>
+</div>
