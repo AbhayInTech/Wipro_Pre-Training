@@ -1,0 +1,38 @@
+<div class="register-container">
+  <h2>Register for Travel Planner</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label for="username">Username</label>
+    <input
+      id="username"
+      type="text"
+      placeholder="Enter username"
+      formControlName="name"
+    />
+
+    <label for="email">Email</label>
+    <input
+      id="email"
+      formControlName="email"
+      type="email"
+      placeholder="Enter email"
+    />
+
+    <label for="password">Password</label>
+    <input
+      id="password"
+      formControlName="password"
+      type="password"
+      placeholder="Enter Password"
+    />
+
+    <label for="password">Confirm Password</label>
+    <input
+      id="Cpassword"
+      type="password"
+      placeholder="Confirm Password"
+      formControlName="confirmPassword"
+    />
+
+    <button type="button" (click)="onClick()">Register</button>
+  </form>
+</div>

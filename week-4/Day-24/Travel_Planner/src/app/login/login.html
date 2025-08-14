@@ -1,0 +1,29 @@
+<div class="login-container">
+  <h1>Login to Travel Planner</h1>
+  <form>
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      placeholder="Enter your email"
+      [formControl]="email"
+    />
+
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter your password"
+      [formControl]="password"
+    />
+
+    <button type="buttton" (click)="send()">Login</button>
+    <p class="register-link">
+      Don't have an account? <a routerLink="../resgister">Register here</a>
+    </p>
+  </form>
+  <div>
+    {{ email.value }}
+    {{ password.value }}
+  </div>
+</div>

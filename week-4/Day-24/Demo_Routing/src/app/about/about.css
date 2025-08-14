@@ -1,0 +1,38 @@
+.about-wrapper {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+.about-wrapper h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.about-wrapper h3 {
+  color: #007bff;
+  margin-top: 30px;
+}
+
+.about-wrapper p,
+.about-wrapper ul {
+  color: #555;
+  line-height: 1.6;
+}
+
+.about-wrapper ul {
+  padding-left: 20px;
+}
+
+.about-wrapper li {
+  margin-bottom: 10px;
+}
+
+.note {
+  margin-top: 30px;
+  font-style: italic;
+  color: #666;
+}

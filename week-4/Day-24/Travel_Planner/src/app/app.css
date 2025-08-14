@@ -1,0 +1,26 @@
+.heading {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #0056b3;
+  text-align: center;
+  margin: 40px 0 20px;
+  line-height: 1.2;
+  position: relative;
+}
+
+.heading::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #00c6ff;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.heading:hover::after {
+  background-color: #0056b3;
+  width: 230px;
+  transition: width 0.3s ease;
+}

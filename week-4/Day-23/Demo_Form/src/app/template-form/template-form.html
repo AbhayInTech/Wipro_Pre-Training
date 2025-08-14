@@ -13,11 +13,19 @@
   </label>
 
   <!-- tiny validation display -->
-  <div
-    *ngIf="formRef.submitted && formRef.controls['username']?.invalid"
-    style="color: #c00"
-  >
-    Username is required (min 3 chars).
+  <div *ngIf="formRef.submitted">
+    <div
+      *ngIf="formRef.form.controls['username']?.errors?.['required']"
+      style="color: #c00"
+    >
+      Username is required.
+    </div>
+    <div
+      *ngIf="formRef.form.controls['username']?.errors?.['minlength']"
+      style="color: #c00"
+    >
+      Minimum 3 characters required.
+    </div>
   </div>
 
   <button type="submit" [disabled]="formRef.invalid">Submit</button>

@@ -1,0 +1,10 @@
+<div class="destinations-container">
+  <h1>Popular Destinations</h1>
+  <div class="destination-grid">
+    <div *ngFor="let dest of destinations" class="destination-card">
+      <img src="{{ dest.image }}" alt="{{ dest.name }}" />
+      <h2>{{ dest.name }}</h2>
+      <p>{{ dest.description }}</p>
+    </div>
+  </div>
+</div>
