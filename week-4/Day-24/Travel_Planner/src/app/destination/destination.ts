@@ -15,11 +15,9 @@ export class Destination implements OnInit {
   constructor(private destinationService: DestinationService) {}
 
   ngOnInit(): void {
-    this.destinationService
-      .getDestinations('destination') // replace 'places' with your actual endpoint
-      .subscribe({
-        next: (data) => (this.destinations = data),
-        error: (err) => console.error('API error:', err),
-      });
+    this.destinationService.getDestinations('destination').subscribe({
+      next: (data) => (this.destinations = data),
+      error: (err) => console.error('API error:', err),
+    });
   }
 }
