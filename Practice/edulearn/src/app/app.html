@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <div class="layout">
+    <!-- Event Binding: (selectCourse) triggers handleSelectCourse() -->
+    <app-course-list
+      [courses]="courses"
+      (selectCourse)="handleSelectCourse($event)"
+    >
+    </app-course-list>
+
+    <!-- Property Binding: pass selected course into detail component -->
+    <app-course-detail [course]="selectedCourse"> </app-course-detail>
+  </div>
+</div>

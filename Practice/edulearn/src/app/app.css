@@ -1,0 +1,15 @@
+/* src/app/app.component.css */
+.container {
+  padding: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

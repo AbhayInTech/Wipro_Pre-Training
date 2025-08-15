@@ -1,0 +1,43 @@
+<!-- src/app/course-detail/course-detail.component.html -->
+<section class="panel" *ngIf="course; else noCourse">
+  <h2>Course Details</h2>
+
+  <!-- Two-Way Binding: edit title, live updates reflect in list via shared reference -->
+  <label>
+    Title:
+    <input [(ngModel)]="course.title" placeholder="Course title" />
+  </label>
+
+  <label>
+    Author:
+    <input [(ngModel)]="course.author" />
+  </label>
+
+  <label>
+    Duration (mins):
+    <input type="number" [(ngModel)]="course.durationMins" />
+  </label>
+
+  <label>
+    Description:
+    <textarea rows="4" [(ngModel)]="course.description"></textarea>
+  </label>
+
+  <div class="preview">
+    <strong>Live Preview:</strong>
+    <p>
+      <em>{{ course.title }}</em> by {{ course.author }} ({{
+        course.durationMins
+      }}
+      mins)
+    </p>
+    <p>{{ course.description }}</p>
+  </div>
+</section>
+
+<ng-template #noCourse>
+  <section class="panel">
+    <h2>Course Details</h2>
+    <p>Please choose a course from the list.</p>
+  </section>
+</ng-template>

@@ -1,0 +1,7 @@
+<h3>Product Details</h3>
+<p><strong>Name:</strong> {{ product.name }}</p>
+<p><strong>Price:</strong> ₹{{ product.price }}</p>
+
+<textarea [(ngModel)]="userFeedback" placeholder="Enter your feedback"></textarea>
+<br />
+<button (click)="sendFeedback()">Submit Feedback</button>

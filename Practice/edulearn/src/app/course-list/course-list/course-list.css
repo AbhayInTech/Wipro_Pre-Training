@@ -1,0 +1,36 @@
+/* src/app/course-list/course-list.component.css */
+.panel {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+li + li {
+  margin-top: 8px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.title {
+  font-weight: 600;
+}
+.sub {
+  color: #555;
+  font-size: 12px;
+}
+button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+button:hover {
+  background: #f4f4f4;
+}

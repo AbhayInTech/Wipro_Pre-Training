@@ -1,0 +1,23 @@
+/* src/app/course-detail/course-detail.component.css */
+.panel {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+}
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+input,
+textarea {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.preview {
+  margin-top: 12px;
+  background: #fafafa;
+  padding: 10px;
+  border-radius: 6px;
+}

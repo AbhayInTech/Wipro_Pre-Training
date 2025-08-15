@@ -1,0 +1,14 @@
+<section class="panel">
+  <h2>Course List</h2>
+  <ul>
+    <li *ngFor="let c of courses">
+      <div class="row">
+        <div class="meta">
+          <div class="title">{{ c.title }}</div>
+          <div class="sub">By {{ c.author }} • {{ c.durationMins }} mins</div>
+        </div>
+        <button type="button" (click)="onViewDetails(c)">View Details</button>
+      </div>
+    </li>
+  </ul>
+</section>
