@@ -1,0 +1,18 @@
+<!-- <h2>User Details</h2>
+<h3>Name : {{ f_name }} {{ L_name }}</h3>
+<h3>Age : {{ age }}</h3> -->
+
+<button (click)="toggleData()">{{ show ? 'Hide' : 'show' }}</button>
+
+<div [ngStyle]="show == true ? { color: 'green' } : { color: 'red' }">
+  @if(show==true){
+  <h3>Name : @if(text==""){{{ f_name }} {{ L_name }}} @else{{{ text }}}</h3>
+  <h3>Age : {{ age }}</h3>
+  } @else{
+  <h3>No Data Here</h3>
+
+  }
+</div>
+
+<input (input)="showData($event)" type="text" pllaceholde="Enter Name" />
+{{ text }}
