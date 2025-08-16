@@ -1,0 +1,25 @@
+<div class="event-list-container">
+  <h2>Events Details :</h2>
+
+  <a routerLink="event-details">Find Event</a>
+  <a routerLink="create-event">Create Event</a>
+
+  <div class="event-card" *ngFor="let event of events">
+    <h3>{{ event.title }}</h3>
+    <p class="event-description">{{ event.description }}</p>
+
+    <div class="event-details">
+      <p><strong>Date:</strong> {{ event.date }} at {{ event.time }}</p>
+      <p><strong>Location:</strong> {{ event.location }}</p>
+      <p><strong>Organizer:</strong> {{ event.organizer }}</p>
+      <p><strong>Category:</strong> {{ event.category }}</p>
+      <p><strong>Status:</strong> {{ event.status }}</p>
+      <p><strong>Attendees:</strong> {{ event.attendeesCount }}</p>
+      <p><strong>Tags:</strong> {{ event.tags.join(', ') }}</p>
+    </div>
+
+    <div class="event-mode" [ngClass]="{ online: event.isOnline, offline: !event.isOnline }">
+      {{ event.isOnline ? 'Online Event' : 'Offline Event' }}
+    </div>
+  </div>
+</div>

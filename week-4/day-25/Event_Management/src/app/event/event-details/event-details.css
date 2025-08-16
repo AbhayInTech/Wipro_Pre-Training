@@ -1,0 +1,27 @@
+.event-detail-container {
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #2c3e50;
+}
+
+.search-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-controls input,
+.search-controls select {
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+.event-card {
+  background-color: #ecf0f1;
+  border-left: 5px solid #f39c12;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}

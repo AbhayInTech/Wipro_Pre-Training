@@ -1,0 +1,65 @@
+.event-list-container {
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #2c3e50;
+}
+
+.event-list-container a {
+  color: #0d6efd; /* Bootstrap blue for consistency */
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  left: 70%;
+  position: relative;
+  margin-right: 40px;
+}
+
+.event-list-container a:hover {
+  color: #f39c12; /* Accent color on hover */
+  text-decoration: underline;
+}
+
+.event-list-container h2 {
+  margin-bottom: 20px;
+  color: #f39c12;
+}
+
+.event-card {
+  background-color: #ecf0f1;
+  border-left: 5px solid #f39c12;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.event-card h3 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.event-description {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.event-details p {
+  margin: 4px 0;
+}
+
+.event-mode {
+  margin-top: 10px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.online {
+  background-color: #27ae60;
+  color: #fff;
+}
+
+.offline {
+  background-color: #c0392b;
+  color: #fff;
+}

@@ -1,0 +1,24 @@
+<div class="create-event-container">
+  <h2>Create New Event</h2>
+  <form id="create-event-form" (ngSubmit)="onSubmit()">
+    <label for="title">Event Title</label>
+    <input type="text" id="title" name="title" required />
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="4" required></textarea>
+
+    <label for="date">Date</label>
+    <input type="date" id="date" name="date" required />
+
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location" required />
+
+    <label for="mode">Mode</label>
+    <select id="mode" name="mode" required>
+      <option value="online">Online</option>
+      <option value="offline">Offline</option>
+    </select>
+
+    <button type="submit">Create Event</button>
+  </form>
+</div>
