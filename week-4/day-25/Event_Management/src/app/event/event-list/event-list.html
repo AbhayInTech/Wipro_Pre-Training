@@ -15,7 +15,7 @@
       <p><strong>Category:</strong> {{ event.category }}</p>
       <p><strong>Status:</strong> {{ event.status }}</p>
       <p><strong>Attendees:</strong> {{ event.attendeesCount }}</p>
-      <p><strong>Tags:</strong> {{ event.tags.join(', ') }}</p>
+      <p><strong>Tags:</strong> {{ event.tags }}</p>
     </div>
 
     <div class="event-mode" [ngClass]="{ online: event.isOnline, offline: !event.isOnline }">

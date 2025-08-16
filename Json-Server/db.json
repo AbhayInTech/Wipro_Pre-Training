@@ -1,7 +1,7 @@
 {
   "events": [
     {
-      "id": 101,
+      "id": "101",
       "title": "Angular Workshop",
       "description": "Hands-on session covering Angular forms and routing.",
       "date": "2025-08-20",
@@ -11,11 +11,15 @@
       "category": "Workshop",
       "attendeesCount": 120,
       "isOnline": false,
-      "tags": ["Angular", "Forms", "Routing"],
+      "tags": [
+        "Angular",
+        "Forms",
+        "Routing"
+      ],
       "status": "Upcoming"
     },
     {
-      "id": 102,
+      "id": "102",
       "title": "RxJS Deep Dive",
       "description": "Advanced concepts in reactive programming with RxJS.",
       "date": "2025-08-22",
@@ -25,11 +29,15 @@
       "category": "Webinar",
       "attendeesCount": 85,
       "isOnline": true,
-      "tags": ["RxJS", "Observables", "Streams"],
+      "tags": [
+        "RxJS",
+        "Observables",
+        "Streams"
+      ],
       "status": "Upcoming"
     },
     {
-      "id": 103,
+      "id": "103",
       "title": "Frontend Hackathon",
       "description": "24-hour coding challenge focused on UI/UX and Angular.",
       "date": "2025-08-25",
@@ -39,11 +47,15 @@
       "category": "Competition",
       "attendeesCount": 200,
       "isOnline": false,
-      "tags": ["Hackathon", "Angular", "Design"],
+      "tags": [
+        "Hackathon",
+        "Angular",
+        "Design"
+      ],
       "status": "Upcoming"
     },
     {
-      "id": 104,
+      "id": "104",
       "title": "Node.js Bootcamp",
       "description": "Backend development fundamentals using Node.js.",
       "date": "2025-08-28",
@@ -53,11 +65,15 @@
       "category": "Workshop",
       "attendeesCount": 95,
       "isOnline": false,
-      "tags": ["Node.js", "Backend", "Express"],
+      "tags": [
+        "Node.js",
+        "Backend",
+        "Express"
+      ],
       "status": "Upcoming"
     },
     {
-      "id": 105,
+      "id": "105",
       "title": "Tech Talk: AI Trends",
       "description": "Exploring the future of AI and machine learning.",
       "date": "2025-08-30",
@@ -67,11 +83,15 @@
       "category": "Webinar",
       "attendeesCount": 150,
       "isOnline": true,
-      "tags": ["AI", "ML", "Trends"],
+      "tags": [
+        "AI",
+        "ML",
+        "Trends"
+      ],
       "status": "Upcoming"
     },
     {
-      "id": 106,
+      "id": "106",
       "title": "Design Sprint",
       "description": "Rapid prototyping and user testing in 5 days.",
       "date": "2025-09-01",
@@ -81,11 +101,15 @@
       "category": "Workshop",
       "attendeesCount": 60,
       "isOnline": false,
-      "tags": ["Design", "UX", "Sprint"],
+      "tags": [
+        "Design",
+        "UX",
+        "Sprint"
+      ],
       "status": "Upcoming"
     },
     {
-      "id": 107,
+      "id": "107",
       "title": "Cybersecurity Essentials",
       "description": "Protecting applications and data from threats.",
       "date": "2025-09-03",
@@ -95,11 +119,15 @@
       "category": "Webinar",
       "attendeesCount": 110,
       "isOnline": true,
-      "tags": ["Security", "Cyber", "Data"],
+      "tags": [
+        "Security",
+        "Cyber",
+        "Data"
+      ],
       "status": "Upcoming"
     },
     {
-      "id": 108,
+      "id": "108",
       "title": "Startup Pitch Night",
       "description": "Showcase your startup idea to investors.",
       "date": "2025-09-05",
@@ -109,11 +137,15 @@
       "category": "Networking",
       "attendeesCount": 75,
       "isOnline": false,
-      "tags": ["Startup", "Pitch", "Investors"],
+      "tags": [
+        "Startup",
+        "Pitch",
+        "Investors"
+      ],
       "status": "Upcoming"
     },
     {
-      "id": 109,
+      "id": "109",
       "title": "DevOps Masterclass",
       "description": "CI/CD pipelines and cloud deployment strategies.",
       "date": "2025-09-07",
@@ -123,11 +155,15 @@
       "category": "Webinar",
       "attendeesCount": 130,
       "isOnline": true,
-      "tags": ["DevOps", "CI/CD", "Cloud"],
+      "tags": [
+        "DevOps",
+        "CI/CD",
+        "Cloud"
+      ],
       "status": "Upcoming"
     },
     {
-      "id": 110,
+      "id": "110",
       "title": "Mobile App Showcase",
       "description": "Demo day for mobile app developers.",
       "date": "2025-09-10",
@@ -137,11 +173,15 @@
       "category": "Demo",
       "attendeesCount": 90,
       "isOnline": false,
-      "tags": ["Mobile", "Apps", "Demo"],
+      "tags": [
+        "Mobile",
+        "Apps",
+        "Demo"
+      ],
       "status": "Upcoming"
     },
     {
-      "id": 111,
+      "id": "111",
       "title": "Career Fair 2025",
       "description": "Meet recruiters and explore job opportunities.",
       "date": "2025-09-12",
@@ -151,11 +191,15 @@
       "category": "Networking",
       "attendeesCount": 300,
       "isOnline": false,
-      "tags": ["Jobs", "Recruiters", "Career"],
+      "tags": [
+        "Jobs",
+        "Recruiters",
+        "Career"
+      ],
       "status": "Upcoming"
     },
     {
-      "id": 112,
+      "id": "112",
       "title": "React vs Angular Debate",
       "description": "Experts compare two leading frontend frameworks.",
       "date": "2025-09-14",
@@ -165,11 +209,15 @@
       "category": "Panel",
       "attendeesCount": 140,
       "isOnline": true,
-      "tags": ["React", "Angular", "Frontend"],
+      "tags": [
+        "React",
+        "Angular",
+        "Frontend"
+      ],
       "status": "Upcoming"
     },
     {
-      "id": 113,
+      "id": "113",
       "title": "Open Source Day",
       "description": "Contribute to real-world open source projects.",
       "date": "2025-09-16",
@@ -179,7 +227,154 @@
       "category": "Hackathon",
       "attendeesCount": 180,
       "isOnline": false,
-      "tags": ["Open Source", "GitHub", "Community"],
+      "tags": [
+        "Open Source",
+        "GitHub",
+        "Community"
+      ],
+      "status": "Upcoming"
+    },
+    {
+      "id": "1755341061801",
+      "title": "abhay",
+      "description": "bbvghfhgfh",
+      "date": "2025-08-13",
+      "location": "patna",
+      "mode": "online",
+      "isOnline": true,
+      "attendeesCount": 0,
+      "organizer": "EventManager Team",
+      "category": "General",
+      "tags": [],
+      "status": "Upcoming"
+    },
+    {
+      "id": "158",
+      "title": "abhay rana",
+      "description": "nsfjkadsjf",
+      "date": "2025-08-13",
+      "location": "patna",
+      "mode": "offline",
+      "isOnline": false,
+      "attendeesCount": 0,
+      "organizer": "EventManager Team",
+      "category": "General",
+      "tags": [],
+      "status": "Upcoming"
+    },
+    {
+      "id": "172",
+      "title": "abhay rana",
+      "description": "sacdfjsan",
+      "date": "2025-08-13",
+      "attendeesCount": "45",
+      "location": "patna",
+      "mode": "online",
+      "isOnline": true,
+      "organizer": "EventManager Team",
+      "category": "General",
+      "tags": [],
+      "status": "Upcoming"
+    },
+    {
+      "id": "135",
+      "title": "abhay rana",
+      "description": "ddgfddgfddhgf",
+      "date": "2025-08-13",
+      "attendeesCount": "45",
+      "location": "patna",
+      "mode": "online",
+      "tags": "flutter , api",
+      "isOnline": true,
+      "organizer": "EventManager Team",
+      "category": "General",
+      "status": "Upcoming"
+    },
+    {
+      "id": "140",
+      "title": "abhay rana",
+      "description": "fdfgdfgghgv",
+      "date": "2025-08-13",
+      "attendeesCount": "45",
+      "location": "patna",
+      "mode": "online",
+      "tags": [
+        "flutter",
+        "api"
+      ],
+      "isOnline": true,
+      "organizer": "EventManager Team",
+      "category": "General",
+      "status": "Upcoming"
+    },
+    {
+      "id": "153",
+      "title": "abhay rana",
+      "description": "bjhbk",
+      "date": "2025-08-13",
+      "attendeesCount": "45",
+      "location": "patna",
+      "mode": "online",
+      "tags": "flutter , api",
+      "isOnline": true,
+      "organizer": "EventManager Team",
+      "category": "General",
+      "status": "Upcoming"
+    },
+    {
+      "id": "105",
+      "title": "abhay rana",
+      "description": "vhgvjhvh",
+      "date": "2025-08-13",
+      "attendeesCount": "45",
+      "location": "patna",
+      "mode": "online",
+      "isOnline": true,
+      "organizer": "EventManager Team",
+      "category": "General",
+      "tags": [],
+      "status": "Upcoming"
+    },
+    {
+      "id": "164",
+      "title": "abhay rana",
+      "description": "akjdsfjjsdd",
+      "date": "2025-08-13",
+      "attendeesCount": "45",
+      "location": "patna",
+      "mode": "online",
+      "isOnline": true,
+      "organizer": "EventManager Team",
+      "category": "General",
+      "tags": [],
+      "status": "Upcoming"
+    },
+    {
+      "id": "118",
+      "title": "abhay rana",
+      "description": "hsbjhhsdhsdshcasdc",
+      "date": "2025-08-13",
+      "attendeesCount": "45",
+      "location": "patna",
+      "mode": "offline",
+      "tags": [],
+      "isOnline": false,
+      "organizer": "EventManager Team",
+      "category": "General",
+      "status": "Upcoming"
+    },
+    {
+      "id": "104",
+      "title": "abhay rana",
+      "description": "abhay ",
+      "date": "2025-08-13",
+      "attendeesCount": "45",
+      "location": "patna",
+      "mode": "offline",
+      "tags": "flutter , api, android",
+      "isOnline": false,
+      "organizer": "EventManager Team",
+      "category": "General",
       "status": "Upcoming"
     }
   ]
