@@ -100,3 +100,26 @@ on 9-08-2025
 consist of code related to Angular Directives and Pipes
 
 Day-21
+content and the code is updated in the week four folder
+on 11-08-2025
+consist of code related to Angular Pipes and Hooks.
+
+Day-22
+content and the code is updated in the week four folder
+on 12-08-2025
+consist of code related to Angular Http Request test using PostMan.
+
+Day-23
+content and the code is updated in the week four folder
+on 13-08-2025
+consist of code related to Angular Forms.
+
+Day-24
+content and the code is updated in the week four folder
+on 14-08-2025
+consist of code related to Angular Routing.
+
+Day-25
+content and the code is updated in the week four folder
+on 16-08-2025
+consist of code related to complete implementation of angular application.
