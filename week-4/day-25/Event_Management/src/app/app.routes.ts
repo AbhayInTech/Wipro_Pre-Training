@@ -20,6 +20,8 @@ export const routes: Routes = [
     path: 'create-event',
     loadChildren: () => import('./event/event-module').then((m) => m.EventModule),
   },
-
-  { path: '**', component: PageNotFound },
+  {
+    path: '**',
+    component: PageNotFound,
+  },
 ];

@@ -376,6 +376,20 @@
       "organizer": "EventManager Team",
       "category": "General",
       "status": "Upcoming"
+    },
+    {
+      "id": "136",
+      "title": "Flutter Workshop",
+      "description": "Great platform for learning",
+      "date": "2025-08-13",
+      "attendeesCount": "90",
+      "location": "Patna",
+      "mode": "offline",
+      "tags": "Flutter, Dart",
+      "isOnline": false,
+      "organizer": "EventManager Team",
+      "category": "General",
+      "status": "Upcoming"
     }
   ]
 }

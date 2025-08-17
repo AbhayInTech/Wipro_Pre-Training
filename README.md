@@ -78,3 +78,25 @@ Day-16
 content and the code is updated in the week three folder
 on 5-08-2025
 consist of code related to html and css.
+
+Day-17
+content and the code is updated in the week three folder
+on 6-08-2025
+consist of code related to javascript and typescript.
+
+Day-18
+content and the code is updated in the week three folder
+on 7-08-2025
+consist of code related to NPM and NodeJs
+
+Day-19
+content and the code is updated in the week three folder
+on 8-08-2025
+consist of code related to introduction to angular framework.
+
+Day-20
+content and the code is updated in the week three folder
+on 9-08-2025
+consist of code related to Angular Directives and Pipes
+
+Day-21

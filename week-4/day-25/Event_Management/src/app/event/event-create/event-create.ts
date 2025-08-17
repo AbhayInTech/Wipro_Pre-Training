@@ -14,7 +14,7 @@ export class EventCreate {
   constructor(private eventService: EventDataService, private router: Router) {}
 
   onSubmit(form: NgForm): void {
-    const newEvent = {
+    const newEvent: any = {
       ...form.value,
       isOnline: form.value.mode === 'online',
       id: (Math.floor(Math.random() * 101) + 100).toString(),

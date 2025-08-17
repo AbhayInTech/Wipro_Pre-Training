@@ -5,6 +5,7 @@
   <a routerLink="create-event">Create Event</a>
 
   <div class="event-card" *ngFor="let event of events">
+    <h3>{{ event.id }}</h3>
     <h3>{{ event.title }}</h3>
     <p class="event-description">{{ event.description }}</p>
 
