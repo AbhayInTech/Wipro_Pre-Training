@@ -1,0 +1,1 @@
+This is a sampple text file used in static demo using .NET Core Web Application.

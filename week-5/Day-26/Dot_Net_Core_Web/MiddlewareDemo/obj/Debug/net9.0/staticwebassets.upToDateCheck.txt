@@ -1,0 +1,8 @@
+wwwroot\Hello.txt
+wwwroot\script.js
+wwwroot\index.html
+wwwroot\styles.css
+D:\Wipro_Pre-Training\week-5\Day-26\Dot_Net_Core_Web\MiddlewareDemo\wwwroot\Hello.txt
+D:\Wipro_Pre-Training\week-5\Day-26\Dot_Net_Core_Web\MiddlewareDemo\wwwroot\script.js
+D:\Wipro_Pre-Training\week-5\Day-26\Dot_Net_Core_Web\MiddlewareDemo\wwwroot\index.html
+D:\Wipro_Pre-Training\week-5\Day-26\Dot_Net_Core_Web\MiddlewareDemo\wwwroot\styles.css
