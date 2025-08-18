@@ -1,0 +1,41 @@
+﻿@page
+@model DemoRazorPage.Pages.Demo1Model
+@{
+    ViewData["Title"] = "Demo Page 1";
+    string greetings = "Hello, Razor Pages!";
+    int counter = 10;
+}
+
+<h1>@greetings</h1>
+
+<p>The current UTC time is : @DateTime.UtcNow</p>
+
+<h3>Consitional Ex</h3>
+@if (counter >= 5)
+{
+    <p>Counter is greater than five: @counter</p>
+}
+else
+{
+    <p>Counter is not greater than five.</p>
+}
+
+<h1>Loop Example</h1>
+<ul>
+    @for(int i=0; i<counter; i++)
+    {
+        <li>Item @i</li>
+    }
+</ul>
+
+<h2>
+    Accessing property define in onGet() and onPost()
+</h2>
+
+<form method="post">
+    <label>Name:</label>
+    <input type="text" name="name" value="@Model.Name" />
+    <button type="submit">Submit</button>
+</form>
+
+<p>Message :@Model.Message</p>
