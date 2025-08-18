@@ -123,3 +123,8 @@ Day-25
 content and the code is updated in the week four folder
 on 16-08-2025
 consist of code related to complete implementation of angular application.
+
+Day-26
+content and the code is updated in the week five folder
+on 18-08-2025
+consist of code related to ASP.NET Razor Pages.
