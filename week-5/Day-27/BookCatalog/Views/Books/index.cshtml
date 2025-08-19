@@ -1,0 +1,22 @@
+@model list<BookCatalog.Model.Book>
+    <h1>
+        Book Catalog
+    </h1>
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Published Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>{{book.Genre}}</td>
+                <td>{{book.PublishedDate}}</td>
+                <td></td>
