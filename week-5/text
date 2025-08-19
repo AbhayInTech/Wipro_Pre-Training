@@ -1,4 +1,5 @@
 dotnet new web -n MiddlewareDemo
 
+dotnet new mvc -n MvcDemo
 
-
+dotnet run

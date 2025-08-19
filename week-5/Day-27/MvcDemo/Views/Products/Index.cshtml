@@ -1,0 +1,23 @@
+﻿@model List<MvcDemo.Models.Product>
+<h1>Product List</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
