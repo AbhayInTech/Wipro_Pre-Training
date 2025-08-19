@@ -1,22 +1,87 @@
-@model list<BookCatalog.Model.Book>
-    <h1>
-        Book Catalog
-    </h1>
-    <table class='table'>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Genre</th>
-                <th>Published Date</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var book in Model)
+@model List<BookCatalog.Models.Book>
+@{
+    var newBook = new BookCatalog.Models.Book();
+}
+<h1> Book Catalog</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Published Date</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
             <tr>
                 <td>@book.Title</td>
                 <td>@book.Author</td>
-                <td>{{book.Genre}}</td>
-                <td>{{book.PublishedDate}}</td>
-                <td></td>
+                <td>@book.Genre</td>
+                <td>@book.PublishedDate.ToShortDateString()</td>
+                <td>@book.Price.ToString("C")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@book.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@book.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* Add book form  *@
+<div class="row mb-4">
+    <div class="col-md-6">
+        <h3> Add new Book</h3>
+        <form id="addBookForm" method="post" asp-action="AddBook" asp-controller="Books">
+            <div class="form-group">
+                <label asp-for="@newBook.Title"></label>
+                <input asp-for="@newBook.Title" class="form-control" />
+                <span asp-validation-for="@newBook.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@newBook.Author"></label>
+                <input asp-for="@newBook.Author" class="form-control" />
+                <span asp-validation-for="@newBook.Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@newBook.Genre"></label>
+                <input asp-for="@newBook.Genre" class="form-control" />
+                <span asp-validation-for="@newBook.Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@newBook.PublishedDate"></label>
+                <input asp-for="@newBook.PublishedDate" class="form-control" />
+                <span asp-validation-for="@newBook.PublishedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@newBook.Price"></label>
+                <input asp-for="@newBook.Price" class="form-control" />
+                <span asp-validation-for="@newBook.Price" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Book</button>
+        </form>
+    </div>
+</div>
+
+@* 
+Book List  *@
+
+<h3> Book Collection</h3>
+<div itemid="book-collection">
+    <ul>
+        @foreach (var book in Model)
+        {
+           <partial name="_BookCard" model="book" />
+           @* partial view *@
+        }
+    </ul>
+</div>
+@section Scripts {
+    <script>
+        // Custom JavaScript can go here
+    </script>
+}

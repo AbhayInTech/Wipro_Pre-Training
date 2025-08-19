@@ -1,0 +1,12 @@
+@model BookCatalog.Models.Book
+@* this is a reusable component *@
+<div class="col-md-4 mb-4">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">by @Model.Author</h6>
+            <p class="card-text">Price: <strong>@Model.Price.ToString("C")</strong></p>
+            <span class="badge bg-secondary">ID: @Model.Id</span>
+        </div>
+    </div>
+</div>
