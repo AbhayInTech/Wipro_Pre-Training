@@ -2,4 +2,6 @@ dotnet new web -n MiddlewareDemo
 
 dotnet new mvc -n MvcDemo
 
+ dotnet new mvc -n RoutingDemo -f net8.0
+
 dotnet run
