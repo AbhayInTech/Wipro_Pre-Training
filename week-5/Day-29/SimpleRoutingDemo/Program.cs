@@ -39,7 +39,7 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "any",
-    pattern: "number/any/{id:int}",
+    pattern: "number/{id:int}",
     defaults: new { controller = "Home", action = "AnyID" });
 
 app.MapControllerRoute(
