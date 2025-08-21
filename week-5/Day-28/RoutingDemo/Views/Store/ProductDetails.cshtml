@@ -1,0 +1,21 @@
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>Product List</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@ViewData["ProductId"]</td>
+            <td>@ViewData["Message"]</td>
+        </tr>
+    </tbody>
+    <p><a href='/'>Back to home</a></p>
+</table>
