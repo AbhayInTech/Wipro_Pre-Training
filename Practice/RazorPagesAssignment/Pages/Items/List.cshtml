@@ -1,0 +1,35 @@
+@page
+@model RazorPagesAssignment.Pages.Items.ListModel
+@{
+    ViewData["Title"] = "Item List";
+}
+
+<h2>Item List</h2>
+
+<!-- Show a message if available (after adding an item) -->
+@if (!string.IsNullOrEmpty(TempData["Message"] as string))
+{
+    <div style="color:green; font-weight:bold">
+        @TempData["Message"]
+    </div>
+}
+
+<!-- Check if we have any items -->
+@if (Model.Items.Any())
+{
+    <ul>
+        @foreach (var item in Model.Items)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No items available.</p>
+}
+
+<!-- Link to Add page -->
+<p>
+    <a asp-page="/Items/Add">Add New Item</a>
+</p>
