@@ -5,3 +5,17 @@ dotnet new mvc -n MvcDemo
  dotnet new mvc -n RoutingDemo -f net8.0
 
 dotnet run
+
+
+
+Case study : Employee salary Report (ESR)
+
+PS1: Only managers should be able to access the “Employee salary report” page.
+
+US1: As a manager I should be able to see salary details , but employees should be able to check that.
+
+Step 1:  Create a controller action like /Reports/Salary
+
+Step 2:  Apply an Authorization filer to check role = “ Manager”
+
+Step 3:  Deny access with HTTP 403 if unauthorized
