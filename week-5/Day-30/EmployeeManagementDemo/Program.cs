@@ -10,6 +10,8 @@ builder.Services.AddControllersWithViews();
 //Adding Filters
 builder.Services.AddScoped<ManagerAuthorizationFilter>();
 builder.Services.AddScoped<ProductCacheResourceFilter>();
+builder.Services.AddScoped<LoggingActionFilter>();
+builder.Services.AddScoped<GlobalExceptionFilter>();
 
 var app = builder.Build();
 

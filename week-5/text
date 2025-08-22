@@ -2,11 +2,9 @@ dotnet new web -n MiddlewareDemo
 
 dotnet new mvc -n MvcDemo
 
- dotnet new mvc -n RoutingDemo -f net8.0
+dotnet new mvc -n RoutingDemo -f net8.0
 
 dotnet run
-
-
 
 Case study : Employee salary Report (ESR)
 
@@ -14,8 +12,20 @@ PS1: Only managers should be able to access the “Employee salary report” pag
 
 US1: As a manager I should be able to see salary details , but employees should be able to check that.
 
-Step 1:  Create a controller action like /Reports/Salary
+Step 1: Create a controller action like /Reports/Salary
 
-Step 2:  Apply an Authorization filer to check role = “ Manager”
+Step 2: Apply an Authorization filer to check role = “ Manager”
 
-Step 3:  Deny access with HTTP 403 if unauthorized
+Step 3: Deny access with HTTP 403 if unauthorized
+
+Problem Statement:
+
+Log every incoming request and outgoing response for debugging.
+
+User Story:
+
+“As a Developer, I want to see request and response logs, so I can debug API calls.”
+
+Implement Action filter to log details before action executes and after action executes.
+
+Print/log ActionName, Parameters, and Execution time.

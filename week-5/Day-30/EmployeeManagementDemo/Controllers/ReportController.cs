@@ -3,11 +3,9 @@ using EmployeeManagementDemo.Filters;
 
 namespace EmployeeManagementDemo.Controllers
 {
-    [ApiController]
-    [Route("reports")]
-    public class ReportController : ControllerBase
+    public class ReportController : Controller
     {
-        [HttpGet("salary")]
+        [HttpGet("reports/salary")]
         [ServiceFilter(typeof(ManagerAuthorizationFilter))]
         public IActionResult Salary() => Content("Salary report: [confidential]");
     }
