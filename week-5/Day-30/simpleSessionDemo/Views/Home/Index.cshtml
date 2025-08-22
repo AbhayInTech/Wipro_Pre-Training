@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1> Session Management Demo </h1>
+<div style="text-align:center">
+    <h2> Visit Count: @Model</h2>
+    <h3> It Shows how many time you accessed the applications</h3>
+    <form asp-action="Reset" method="post">
+        <a href="@Url.Action("Index", "Home")">Home</a>
+        <a href="@Url.Action("Reset", "Reset")">Reset</a>
+        <button type="submit">Reset</button>
+    </form>
+</div>
+<div style=" margin-top: 20px;"></div>
+
+<p>Session data can be useful for tracking user activity with following steps </p>
+
+<ol>
+
+    <li>Click "Refresh Page" - counter increases</li>
+
+    <li>Open same URL in new browser tab - counter continues</li>
+
+    <li>Open in Incognito/Private window - counter resets (new session)</li>
+
+    <li>Wait 5 minutes - session expires, counter resets</li>
+
+</ol>
+
+</div>
