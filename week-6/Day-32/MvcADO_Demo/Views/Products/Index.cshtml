@@ -1,0 +1,38 @@
+@using MvcADO_Demo.Models
+@using System.Data
+@using Microsoft.Data.SqlClient
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Products</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model is DataTable productsTable && productsTable.Rows.Count > 0)
+        {
+            foreach (DataRow row in productsTable.Rows)
+            {
+                <tr>
+                    <td>@row["Id"]</td>
+                    <td>@row["Name"]</td>
+                    <td>@row["Price"]</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">No products found</td>
+            </tr>
+        }
+    </tbody>
+</table>
