@@ -41,3 +41,5 @@ app.MapControllerRoute(
 
 
 app.Run();
+// MvcADO_Demo working perfectly to get the data from the database using ADO.NET
+// and display it in the view using ADO.NET approach
