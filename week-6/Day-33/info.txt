@@ -1,0 +1,49 @@
+dotnet tool install --global dotnet-ef
+
+
+Step 1:  Install Ef  using (dotnet tool install --global dotnet-ef) and check version dotnet ef --version
+
+Step 2:  Create a console application with packages for EF code first approach 
+
+Microsoft.EntityFrameworkCore.SqlServer
+
+Microsoft.EntityFrameworkCore.Design
+Microsoft.Extension.Configuration.Json
+Step 3: Add appsetting.json( root of the project with connection string)
+
+Step 4: Creating Entity Classes ( models) within a model folder 
+
+- Student 
+- Trainer
+- Course
+
+Step 5:  Creating TrainingContext ( DBContext): For mapping entities into your  database. 
+
+Step 6:  Adding a design time factory so that “dotnet ef “ finds he DBContext during migration
+
+Step 7: changing program.cs  with some sample data for following classes
+
+Student 
+
+Trainer
+Course
+
+Step 8: Create initial migration and updating Database using following commands
+
+Dotnet ef migrations add InitialCreate : | for creating initial migration
+Done ef database update  : | Applying migration to create the database
+Step 9: running and verifying application.
+
+Step 10 : Add Email to Student( schema change using Migrations)
+
+    Public string? Email {get ; set }
+
+Step 11: Running migration commands again for pushing schema changes to the database  
+
+dotnet ef migrations add AddstudentEmail
+Dotnet ef database update
+
+
+
+
+
