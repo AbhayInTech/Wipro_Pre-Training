@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RepoDemo.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a2ac8fba9b26d5db1545c8daa099cd238cd5c37")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ffb111ed6dfb2588f71f613738e456e86354b98")]
 [assembly: System.Reflection.AssemblyProductAttribute("RepoDemo.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RepoDemo.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

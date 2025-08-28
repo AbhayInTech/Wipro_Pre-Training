@@ -1,20 +1,20 @@
 using Microsoft.EntityFrameworkCore;
 using RepoDemo.Api.Data;
 using RepoDemo.Api.Models;
+using RepoDemo.Api.Repository;
+using RepoDemo.Api.Repository.Interfaces;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.Acting like dependency injection
+// Add services to the container.
+builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-//Adding unit of work and repository pattern services
+// Adding unit of work and repository pattern services
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
-
-
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -48,23 +48,9 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
+app.MapControllers();
+
 app.Run();
-
-internal class GenericRepository<T>
-{
-}
-
-internal interface IGenericRepository<T>
-{
-}
-
-internal class UnitOfWork : IUnitOfWork
-{
-}
-
-internal interface IUnitOfWork
-{
-}
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
