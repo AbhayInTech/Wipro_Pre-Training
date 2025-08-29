@@ -1,0 +1,17 @@
+@page
+@model ListModel
+
+@foreach (var product in Model.Products)
+{
+    <partial name="_ProductSummary" model="product" />
+    @if (product.Categories != null && product.Categories.Any())
+    {
+        <ul>
+            @foreach (var category in product.Categories)
+            {
+                <li>@category.CategoryName</li>
+            }
+        </ul>
+    }
+    <a asp-page="/Products/Details" asp-route-id="@product.ProductID">View Details</a>
+}

@@ -1,0 +1,12 @@
+<form method="post">
+    <input asp-for="Product.Name" placeholder="Product Name" />
+    <textarea asp-for="Product.Description" placeholder="Description"></textarea>
+
+    <h4>Categories</h4>
+    @for (int i = 0; i < Model.Product.Categories.Count; i++)
+    {
+        <input asp-for="Product.Categories[i].CategoryName" placeholder="Category @(i + 1)" />
+    }
+
+    <button type="submit">Add Product</button>
+</form>
