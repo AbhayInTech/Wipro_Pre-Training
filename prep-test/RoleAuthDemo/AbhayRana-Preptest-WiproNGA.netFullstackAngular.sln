@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36408.4 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoleAuthDemo", "RoleAuthDemo.csproj", "{B2EA8086-C089-62DE-AD6F-3182599E11B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2EA8086-C089-62DE-AD6F-3182599E11B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2EA8086-C089-62DE-AD6F-3182599E11B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2EA8086-C089-62DE-AD6F-3182599E11B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2EA8086-C089-62DE-AD6F-3182599E11B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF4117F2-DF20-4BF3-877A-24761F59E338}
+	EndGlobalSection
+EndGlobal

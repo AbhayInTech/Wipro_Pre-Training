@@ -1,0 +1,10 @@
+@model RoleAuthDemo.Models.ApplicationUser
+@{
+    ViewData["Title"] = "User Profile";
+}
+<h2>Welcome, @Model.DisplayName ?? @Model.UserName! Here is your profile information.</h2>
+
+<ul>
+    <li>Username: @Model.UserName</li>
+    <li>Email: @Model.Email</li>
+</ul>

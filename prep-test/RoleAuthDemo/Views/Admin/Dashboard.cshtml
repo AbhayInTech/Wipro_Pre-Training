@@ -1,0 +1,23 @@
+@model IEnumerable<RoleAuthDemo.Models.ApplicationUser>
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+<h2>Welcome, Admin! You have access to the Admin Dashboard.</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.UserName</td>
+                <td>@u.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>

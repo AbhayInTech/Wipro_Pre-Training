@@ -1,0 +1,122 @@
+RoleAuthDemo - ASP.NET Core MVC (Secure Login & Role-Based Authorization)
+
+Project Overview
+
+This project demonstrates secure login and role-based authorization in an ASP.NET Core MVC application using Identity. It includes:
+
+- Authentication with `UserManager` and `SignInManager`.
+- Secure password hashing.
+- Role-based authorization (`Admin`, `User`).
+- CSRF protection with `AntiForgeryToken`.
+- HTTPS enforcement with `RequireHttps`.
+- Sensitive data protection using Data Protection API.
+
+How This Project Was Created
+
+1. Create a new MVC project
+
+dotnet new mvc -n RoleAuthDemo
+cd RoleAuthDemo
+
+2. Add required packages
+
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.AspNetCore.DataProtection
+
+3. Configure Identity and DbContext
+
+   Created `ApplicationUser.cs` model extending `IdentityUser`.
+   Added `ApplicationDbContext.cs` inheriting from `IdentityDbContext<ApplicationUser>`.
+   Configured services in `Program.cs` (Identity, DbContext, HTTPS, Data Protection).
+
+4. Add Controllers & Views
+
+`AccountController` → Login, Logout, AccessDenied.
+`AdminController` → Dashboard (Admin only).
+`UserController` → Profile (User/Admin).
+Views: `Login.cshtml`, `Dashboard.cshtml`, `Profile.cshtml`, `AccessDenied.cshtml`.
+
+5. Role Seeding
+
+   Implemented `SeedData.cs` to create roles (`Admin`, `User`) and default accounts.
+   Called seeding in `Program.cs`.
+
+6. Security Enhancements
+
+Added `[ValidateAntiForgeryToken]` and `@Html.AntiForgeryToken()`.
+Enforced HTTPS with `RequireHttpsAttribute` and `UseHttpsRedirection()`.
+Used Data Protection API in `AccountController`.
+
+Setup Instructions
+
+1. Navigate
+
+cd RoleAuthDemo
+
+2. Install EF Tools (if not already installed)
+
+dotnet tool install --global dotnet-ef
+
+3. Apply Migrations & Create Database
+
+dotnet ef migrations add InitialCreate # Only if migrations folder not present
+dotnet ef database update
+
+4. Run the Application
+
+dotnet run
+
+You should see output similar to:
+Now listening on: https://localhost:5001
+
+Application URLs
+
+- Home: `https://localhost:5001/`
+- Login: `https://localhost:5001/Account/Login`
+- Admin Dashboard: `https://localhost:5001/Admin/Dashboard`
+- User Profile: `https://localhost:5001/User/Profile`
+- Access Denied: `https://localhost:5001/Account/AccessDenied`
+
+Accounts
+
+The application consist of two default accounts:
+
+Admin
+
+- Username: `admin`
+- Password: `Admin@123`
+
+User
+
+- Username: `user1`
+- Password: `User@123`
+
+Testing Scenarios
+
+A. Admin Login
+
+1. Navigate to `/Account/Login`.
+2. Enter `admin / Admin@123`.
+3. Redirects to `/Admin/Dashboard` with welcome message.
+
+B. User Login
+
+1. Navigate to `/Account/Login`.
+2. Enter `user1 / User@123`.
+3. Redirects to `/User/Profile` with profile message.
+
+C. Unauthorized Access
+
+- Login as `user1` and try to access `/Admin/Dashboard`.
+- You should see `Access Denied` page.
+
+  Security Features Implemented
+
+- Password Hashing: Managed by ASP.NET Core Identity.
+- Role-Based Authorization: `[Authorize(Roles="Admin")]`, `[Authorize(Roles="User,Admin")]`.
+- CSRF Protection: `@Html.AntiForgeryToken()` in forms, `[ValidateAntiForgeryToken]` in actions.
+- HTTPS Enforcement: `RequireHttpsAttribute` + `app.UseHttpsRedirection()`.
+- Data Protection API: Protects sensitive data (e.g., email).
