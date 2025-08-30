@@ -1,3 +1,213 @@
 dotnet add package Microsoft.AspNetCore.Authentication.Cookies
 
 dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
+
+
+
+//Here we are creating a JWT token string that can be used for authentication
+
+            //Here we can use cookie authentication as well by following steps
+
+            //Step 1: Create a cookie with the JWT token
+
+            // var cookieOptions = new CookieOptions
+
+            // {
+
+            //     HttpOnly = true,
+
+            //     Expires = DateTimeOffset.UtcNow.AddMinutes(30)
+
+            // };
+
+            // Response.Cookies.Append("jwt", token, cookieOptions);
+
+            // Step 2: Return the JWT token as a response
+
+            // return Ok(new { token });
+
+            // var token = new JwtSecurityToken(
+
+            //     issuer: _configuration["Jwt:Issuer"], // this is referenced from appsettings.json using _configuration
+
+            //     audience: _configuration["Jwt:Audience"],
+
+            //     claims: claims,
+
+            //     expires: DateTime.Now.AddMinutes(30), // duration of token validity
+
+            //     signingCredentials: creds
+
+            // );
+
+
+
+
+curl "https://localhost:7040/token?user=ankit&role=Admin&dept=HR" -k
+
+curl "https://localhost:7040/token?user=ankit&role=Admin&dept=HR" -k
+
+curl -H "Authorization: Bearer YOUR_TOKEN_HERE" "https://localhost:7040/secure/admin-only" -k
+
+curl -H "Authorization: Bearer YOUR_TOKEN_HERE" "https://localhost:7040/secure/hr-only" -k
+
+
+
+
+private string GenerateJwtToken(UserModel userModel)
+
+        {
+
+            var claims = new[]
+
+            {
+
+                new Claim(JwtRegisteredClaimNames.Sub, userModel.Email),
+
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+
+                issuer: _configuration["Jwt:Issuer"],
+
+                audience: _configuration["Jwt:Audience"],
+
+                claims: claims,
+
+                expires: DateTime.Now.AddMinutes(30),
+
+                signingCredentials: creds);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+
+        }
+
+    }
+
+}
+
+// Here we will create a simple user model
+
+namespace JwtAuthentication.Models
+
+{
+
+    public class UserModel
+
+    {
+
+        public string Email { get; set; }
+
+        public string Password { get; set; }
+
+    }
+
+}
+
+"Jwt": {
+
+    "Key": "ThisIsASecretKeyForJwtdgngfxhfjnhnhgnhggmgnm",
+
+    "Issuer": "YourIssuer",
+
+    "Audience": "YourAudience",
+
+    "DurationInMinutes": 60
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ------------------------------------------------------
+  # Create solution folder
+
+mkdir MicroservicesDemo && cd MicroservicesDemo
+
+ 
+
+# Create a solution file
+
+dotnet new sln -n MicroservicesDemo
+
+ 
+
+# Create ProductService
+
+dotnet new webapi -n ProductService
+
+dotnet sln add ProductService/ProductService.csproj
+
+ 
+
+# Create OrderService
+
+dotnet new webapi -n OrderService
+
+dotnet sln add OrderService/OrderService.csproj
+
+
+
+
+
+cd ProductService
+
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+
+cd ..
+
+
+---------Models/Product.cs----------------
+// here we will create a products model class for implementation so that it can be scaffolded in the database
+
+namespace ProductService.Models
+
+{
+
+    public class Products
+
+    {
+
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public string Description { get; set; }
+
+        public decimal Price { get; set; }
+
+        public int Stock { get; set; }
+
+    }
+
+}
+
+
+
+
+---------Data/ProductContext.cs----------------------
+
+-----s--- program.cs-----------------------------------
