@@ -1,0 +1,16 @@
+form {
+  max-width: 350px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+form div {
+  margin-bottom: 12px;
+}
+
+button {
+  width: 100%;
+}

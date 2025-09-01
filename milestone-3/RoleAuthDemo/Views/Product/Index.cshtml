@@ -1,0 +1,47 @@
+@model IEnumerable<RoleAuthDemo.Models.ProductViewModel>
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h2>Products</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+@if (User.IsInRole("Admin"))
+{
+    <a asp-action="Create" class="btn btn-primary">Create New Product</a>
+}
+<link rel="stylesheet" href="~/css/product-list.css" asp-append-version="true" />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@String.Format("{0:C}", p.Price)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@p.Id" class="btn btn-sm btn-secondary">Edit</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <form asp-action="Delete" asp-route-id="@p.Id" method="post" style="display:inline">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-sm btn-danger"
+                                onclick="return confirm('Delete?');">Delete</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

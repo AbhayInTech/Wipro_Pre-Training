@@ -1,0 +1,17 @@
+h2 {
+  margin-bottom: 20px;
+}
+
+.table {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th {
+  background: #f0f0f0;
+}
+
+.alert {
+  margin-top: 15px;
+}
