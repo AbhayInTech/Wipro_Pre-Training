@@ -1,0 +1,21 @@
+<div style="padding: 20px; font-family: Arial, sans-serif">
+  <h1>Simple Axios Demo</h1>
+
+  <button (click)="getData()" style="padding: 10px; margin: 10px">
+    {{ loading ? 'Loading...' : 'Get Random User' }}
+  </button>
+
+  <div *ngIf="user">
+    <h3>User Info:</h3>
+
+    <img [src]="user.picture.large" alt="User" style="border-radius: 50%" />
+
+    <p><strong>Name:</strong> {{ user.name.first }} {{ user.name.last }}</p>
+
+    <p><strong>Email:</strong> {{ user.email }}</p>
+
+    <p><strong>Location:</strong> {{ user.location.city }}, {{ user.location.country }}</p>
+  </div>
+
+  <div *ngIf="error" style="color: red; margin-top: 20px">Error: {{ error }}</div>
+</div>

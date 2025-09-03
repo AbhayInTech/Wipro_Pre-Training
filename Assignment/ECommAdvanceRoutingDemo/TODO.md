@@ -1,0 +1,17 @@
+- [x] Create Models/Product.cs
+- [x] Create Models/CartItem.cs
+- [x] Create Models/Cart.cs
+- [x] Create Controllers/ProductsController.cs
+- [x] Create Controllers/CartController.cs
+- [x] Create Controllers/CheckoutController.cs
+- [x] Create Controllers/AccountController.cs
+- [x] Create CustomConstraints/PriceRangeConstraint.cs
+- [x] Update Program.cs for routes and constraints
+- [x] Create Views/Products/Index.cshtml
+- [x] Create Views/Products/Details.cshtml
+- [x] Create Views/Products/Filter.cshtml
+- [x] Create Views/Cart/Index.cshtml
+- [x] Create Views/Checkout/Index.cshtml
+- [x] Create Views/Account/Login.cshtml
+- [x] Add session services
+- [x] Create test project

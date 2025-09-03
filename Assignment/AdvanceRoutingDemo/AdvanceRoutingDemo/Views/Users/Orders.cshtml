@@ -1,0 +1,36 @@
+@model List<AdvanceRoutingDemo.Models.Order>
+
+@{
+    ViewData["Title"] = "Orders for " + ViewBag.Username;
+}
+
+<h1>Orders for @ViewBag.Username</h1>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Product ID</th>
+                <th>Quantity</th>
+                <th>Order Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@order.ProductId</td>
+                    <td>@order.Quantity</td>
+                    <td>@order.OrderDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No orders found.</p>
+}

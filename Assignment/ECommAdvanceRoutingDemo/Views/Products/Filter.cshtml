@@ -1,0 +1,22 @@
+@model IEnumerable<ECommAdvanceRoutingDemo.Models.Product>
+
+<h1>Filtered Products in @ViewBag.Category</h1>
+<p>Price Range: @ViewBag.PriceRange</p>
+
+<ul>
+    @foreach (var product in Model)
+    {
+        <li>
+            <h2>@product.Name</h2>
+            <p>@product.Description</p>
+            <p>Price: $@product.Price</p>
+            <a href="/Products/@product.Category/@product.Id">View Details</a>
+            <form method="post" action="/Cart/AddToCart">
+                <input type="hidden" name="productId" value="@product.Id" />
+                <button type="submit">Add to Cart</button>
+            </form>
+        </li>
+    }
+</ul>
+
+<a href="/Products/@ViewBag.Category">Back to @ViewBag.Category</a>

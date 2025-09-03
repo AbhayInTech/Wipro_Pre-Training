@@ -1,0 +1,14 @@
+@model AdvanceRoutingDemo.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h1>@Model.Name</h1>
+
+<p>Category: @Model.Category</p>
+<p>Price: $@Model.Price</p>
+<p>Product ID: @Model.Id</p>
+<p>GUID: @Model.GuidId</p>
+
+<a href="/Products/@Model.Category">Back to @Model.Category</a>

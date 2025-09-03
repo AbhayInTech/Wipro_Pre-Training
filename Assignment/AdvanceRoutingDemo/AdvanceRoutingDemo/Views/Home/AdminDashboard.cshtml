@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h1>@ViewBag.Message</h1>
+
+<p>As an admin, you have access to advanced features.</p>
+
+<ul>
+    <li><a href="/Products/Electronics">View Electronics</a></li>
+    <li><a href="/Users/admin/Orders">View Admin Orders</a></li>
+    <li><a href="/Product/12345678-1234-1234-1234-123456789abc">View Product by GUID</a></li>
+</ul>

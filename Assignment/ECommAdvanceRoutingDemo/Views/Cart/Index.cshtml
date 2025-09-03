@@ -1,0 +1,30 @@
+@model ECommAdvanceRoutingDemo.Models.Cart
+
+<h1>Your Shopping Cart</h1>
+
+@if (Model.Items.Count == 0)
+{
+    <p>Your cart is empty.</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>$@item.Product.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

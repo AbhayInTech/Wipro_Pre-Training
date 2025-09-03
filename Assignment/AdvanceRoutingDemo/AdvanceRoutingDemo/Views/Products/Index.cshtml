@@ -1,0 +1,16 @@
+@model List<AdvanceRoutingDemo.Models.Product>
+
+@{
+    ViewData["Title"] = "Products in " + ViewBag.Category;
+}
+
+<h1>Products in @ViewBag.Category</h1>
+
+<ul>
+    @foreach (var product in Model)
+    {
+        <li>
+            <a href="/Products/@product.Category/@product.Id">@product.Name</a> - $@product.Price
+        </li>
+    }
+</ul>

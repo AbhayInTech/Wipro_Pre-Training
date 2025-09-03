@@ -1,0 +1,34 @@
+@model ECommAdvanceRoutingDemo.Models.Cart
+
+<h1>Checkout</h1>
+
+@if (Model.Items.Count == 0)
+{
+    <p>Your cart is empty.</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>$@item.Product.Price</td>
+                    <td>$@(item.Product.Price* item.Quantity)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>Total: $@Model.Items.Sum(i => i.Product.Price * i.Quantity)</p>
+    <p>Thank you for your purchase!</p>
+}
