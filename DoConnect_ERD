@@ -1,0 +1,12 @@
+digraph DoConnect_ERD {
+	rankdir=LR size=8
+	User [label="{User|UserId (PK)\lUsername\lPasswordHash\lRole\l}" fontsize=10 shape=record]
+	Question [label="{Question|QuestionId (PK)\lUserId (FK)\lTitle\lText\lStatus\l}" fontsize=10 shape=record]
+	Answer [label="{Answer|AnswerId (PK)\lQuestionId (FK)\lUserId (FK)\lText\lStatus\l}" fontsize=10 shape=record]
+	Image [label="{Image|ImageId (PK)\lPath\lQuestionId (FK, nullable)\lAnswerId (FK, nullable)\l}" fontsize=10 shape=record]
+	User -> Question [label="1..*"]
+	User -> Answer [label="1..*"]
+	Question -> Answer [label="1..*"]
+	Question -> Image [label="0..*"]
+	Answer -> Image [label="0..*"]
+}
