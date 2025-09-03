@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "MVC Pattern and Model Binding Demo";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h4>Simple Model Binding</h4>
+            </div>
+            <div class="card-body">
+
+                <a href="@Url.Action("Create", "User")" class="btn btn-primary">Try Simple Model Binding</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h4>Complex Model Binding</h4>
+            </div>
+            <div class="card-body">
+
+                <a href="@Url.Action("CreateWithAddress", "User")" class="btn btn-success">Try Complex Model Binding</a>
+            </div>
+        </div>
+    </div>
+</div>

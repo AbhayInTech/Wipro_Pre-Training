@@ -1,0 +1,17 @@
+@page
+@model ListModel
+
+<h1>Product List</h1>
+<a asp-page="/Products/Create">Create New Product</a>
+
+@foreach (var product in Model.Products)
+{
+    <partial name="_ProductSummary" model="product" />
+    <ul>
+        @foreach (var category in product.Categories)
+        {
+            <li>@category.CategoryName</li>
+        }
+    </ul>
+    <a asp-page="/Products/Details" asp-route-id="@product.ProductID">View Details</a>
+}

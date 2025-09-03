@@ -1,0 +1,12 @@
+@model RazorProductApp.Pages.Products.CreateModel
+
+<form method="post">
+    <input asp-for="ViewModel.Name" placeholder="Product Name" />
+    <input asp-for="ViewModel.Description" placeholder="Description" />
+
+    <h4>Categories</h4>
+    <input asp-for="ViewModel.Category1" placeholder="Category 1" />
+    <input asp-for="ViewModel.Category2" placeholder="Category 2" />
+
+    <button type="submit">Add Product</button>
+</form>

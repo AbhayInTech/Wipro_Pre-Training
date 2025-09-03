@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "Success - Data Submitted";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="alert alert-success">
+    <h4>User data submitted successfully!</h4>
+</div>
+
+@if (ViewBag.UserData != null)
+{
+    <div class="card">
+        <div class="card-header">
+            <h5>Submitted User Information</h5>
+        </div>
+        <div class="card-body">
+            <p>@ViewBag.UserData</p>
+        </div>
+    </div>
+}
+
+@if (ViewBag.AddressData != null)
+{
+    <div class="card mt-3">
+        <div class="card-header">
+            <h5>Submitted Address Information</h5>
+        </div>
+        <div class="card-body">
+            <p>@ViewBag.AddressData</p>
+        </div>
+    </div>
+}
+
+<div class="mt-3">
+    <a href="@Url.Action("Index", "User")" class="btn btn-secondary">Back to Index</a>
+    <a href="@Url.Action("Create", "User")" class="btn btn-primary">Create Another User</a>
+    <a href="@Url.Action("CreateWithAddress", "User")" class="btn btn-primary">Create User with Address</a>
+</div>
