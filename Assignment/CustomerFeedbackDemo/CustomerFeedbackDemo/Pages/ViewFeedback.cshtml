@@ -1,0 +1,38 @@
+@page
+@model ViewFeedbackModel
+@{
+    ViewData["Title"] = "View Feedback";
+}
+
+<h1>Submitted Feedback</h1>
+
+@if (Model.Feedbacks.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Rating</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var feedback in Model.Feedbacks)
+            {
+                <tr>
+                    <td>@feedback.Name</td>
+                    <td>@feedback.Email</td>
+                    <td><star-rating value="@feedback.Rating"></star-rating></td>
+                    <td>@feedback.Comments</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No feedback submitted yet.</p>
+}
+
+<a asp-page="Feedback">Submit New Feedback</a>

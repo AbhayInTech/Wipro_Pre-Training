@@ -1,0 +1,39 @@
+@page
+@model FeedbackModel
+@{
+    ViewData["Title"] = "Submit Feedback";
+}
+
+<h1>Submit Your Feedback</h1>
+
+<form asp-page="Feedback" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div>
+        <label asp-for="Feedback.Name"></label>
+        @Html.CustomTextBox("Feedback.Name", "Enter your name", "form-control")
+        <span asp-validation-for="Feedback.Name" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Feedback.Email"></label>
+        @Html.TextBoxFor(m => m.Feedback.Email, new { @class = "form-control", placeholder = "Enter your email" })
+        <span asp-validation-for="Feedback.Email" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Feedback.Rating"></label>
+        @Html.DropDownListFor(m => m.Feedback.Rating, new SelectList(Enumerable.Range(1, 5)), "Select Rating", new { @class = "form-control" })
+        <span asp-validation-for="Feedback.Rating" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Feedback.Comments"></label>
+        @Html.TextAreaFor(m => m.Feedback.Comments, new { @class = "form-control", rows = 4, placeholder = "Enter your comments" })
+        <span asp-validation-for="Feedback.Comments" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<a asp-page="ViewFeedback">View Submitted Feedback</a>
