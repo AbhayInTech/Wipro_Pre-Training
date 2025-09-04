@@ -19,3 +19,216 @@
 
   <div *ngIf="error" style="color: red; margin-top: 20px">Error: {{ error }}</div>
 </div>
+
+<!-- 
+
+Why JWT should be implemented with Axios : Interceptors – Easily attach JWT token to every request header (Authorization: Bearer <token>) without repeating code.
+
+
+Automatic error handling – Can globally catch 401 Unauthorized and trigger token refresh or redirect to login.
+
+Cleaner code – Less boilerplate compared to Fetch for setting headers, parsing JSON, and handling errors. 
+
+
+logout() {
+
+    this.token = '';
+
+    this.isAuthenticated = false;
+
+    this.data = null;
+
+    
+
+    // Remove authorization header
+
+    delete axios.defaults.headers.common['Authorization'];
+
+  }
+
+// Helper method to make API calls
+
+  private async makeApiCall(url: string, description: string) {
+
+    this.loading = true;
+
+    this.error = '';
+
+    this.data = null;
+
+ 
+
+    try {
+
+      const response = await axios.get(url);
+
+      this.data = response.data;
+
+      console.log(`${description} successful:`, response.data);
+
+    } catch (err: any) {
+
+      this.error = err.response?.data?.message || err.message || `Failed to ${description}`;
+
+      console.error(`${description} error:`, err);
+
+      
+
+      // If token is invalid, force logout
+
+      if (err.response?.status === 401) {
+
+        this.logout();
+
+        this.error += ' - Session expired, please login again';
+
+      }
+
+    } finally {
+
+      this.loading = false;
+
+    }
+
+  }
+
+
+
+
+
+
+
+  // Call refresh endpoint
+
+            const res = await axios.post<{ accessToken: string }>(
+
+              `${environment.apiUrl}/auth/refresh`,
+
+              { refreshToken }
+
+            );
+
+ 
+
+            const newToken = res.data.accessToken;
+
+            this.auth.setToken(newToken);
+
+ 
+
+            // retry original request with new token
+
+            originalRequest.headers = {
+
+              ...(originalRequest.headers || {}),
+
+              Authorization: `Bearer ${newToken}`
+
+            };
+
+ 
+
+            return this.client(originalRequest);
+
+          } catch (refreshError) {
+
+            this.auth.clearTokens();
+
+            await this.router.navigate(['/login']);
+
+            return Promise.reject(refreshError);
+
+          } finally {
+
+            this.isRefreshing = false;
+
+          }
+
+        }
+
+        return Promise.reject(error);
+
+      }
+
+    );
+
+  }
+
+ 
+
+  get<T = any>(url: string, config?: AxiosRequestConfig) { return this.client.get<T>(url, config); }
+
+post<T = any>(url: string, data?: any, config?: AxiosRequestConfig) { return this.client.post<T>(url, data, config); }
+
+  put<T = any>(url: string, data?: any, config?: AxiosRequestConfig) { return this.client.put<T>(url, data, config); }
+
+  delete<T = any>(url: string, config?: AxiosRequestConfig) { return this.client.delete<T>(url, config); }
+
+Automatically attaches JWT on every request.
+
+If token expired → calls /auth/refresh, saves new token, retries original request.
+
+If refresh also fails → logs out user, navigates to login.
+
+
+Component calls API through AxiosService.
+
+Axios attaches access token to request.
+
+If token is valid → API responds 200 OK.
+
+If token is expired → API responds 401 Unauthorized.
+
+Axios interceptor catches 401 and automatically calls /auth/refresh.
+
+If refresh is valid → new access token is saved and original request is retried.
+
+If refresh fails → tokens are cleared, and user is redirected to login page.
+
+https://onecompiler.com/csharp/43vm6mj2e
+
+Parth .
+to
+Everyone
+02:20 PM
+
+// Request → attach access token
+
+    this.client.interceptors.request.use((config: AxiosRequestConfig) => {
+
+      const token = this.auth.getToken();
+
+      if (token) {
+
+        config.headers = {
+
+          ...(config.headers || {}),
+
+          Authorization: `Bearer ${token}`
+
+        };
+
+      }
+
+      return config;
+
+    });
+
+rgument of type '(config: AxiosRequestConfig) => AxiosRequestConfig<any>' is not assignable to parameter of type '(value: InternalAxiosRequestConfig<any>) => InternalAxiosRequestConfig<any> | Promise<InternalAxiosRequestConfig<any>>'.
+
+  Type 'AxiosRequestConfig<any>' is not assignable to type 'InternalAxiosRequestConfig<any> | Promise<InternalAxiosRequestConfig<any>>'.
+
+    Type 'AxiosRequestConfig<any>' is not assignable to type 'InternalAxiosRequestConfig<any>'.
+
+      Types of property 'headers' are incompatible.
+
+        Type 'AxiosHeaders | (Partial<RawAxiosHeaders & { Accept: AxiosHeaderValue; "Content-Length": AxiosHeaderValue; "User-Agent": AxiosHeaderValue; "Content-Encoding": AxiosHeaderValue; Authorization: AxiosHeaderValue; } & { ...; }> & Partial<...>) | undefined' is not assignable to type 'AxiosRequestHeaders'.
+
+          Type 'undefined' is not assignable to type 'AxiosRequestHeaders'.
+
+            Type 'undefined' is not assignable to type 'Partial<RawAxiosHeaders & { Accept: AxiosHeaderValue; "Content-Length": AxiosHeaderValue; "User-Agent": AxiosHeaderValue; "Content-Encoding": AxiosHeaderValue; Authorization: AxiosHeaderValue; } & { ...; }> & Partial<...>'.
+
+              Type 'undefined' is not assignable to type 'Partial<RawAxiosHeaders & { Accept: AxiosHeaderValue; "Content-Length": AxiosHeaderValue; "User-Agent": AxiosHeaderValue; "Content-Encoding": AxiosHeaderValue; Authorization: AxiosHeaderValue; } & { ...; }>'.
+
+
+-->
