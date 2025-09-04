@@ -1,0 +1,12 @@
+<h2>Admin Dashboard</h2>
+<h3>Pending Questions</h3>
+<div *ngFor="let x of pq">
+  {{ x.title }} — <button (click)="apq(x.questionId)">Approve</button>
+  <button (click)="rjq(x.questionId)">Reject</button>
+</div>
+
+<h3>Pending Answers</h3>
+<div *ngFor="let a of pa">
+  {{ a.text }} — <button (click)="apa(a.answerId)">Approve</button>
+  <button (click)="rja(a.answerId)">Reject</button>
+</div>

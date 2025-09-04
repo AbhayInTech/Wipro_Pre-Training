@@ -1,0 +1,9 @@
+<h2>Register</h2>
+<div *ngIf="msg" style="color: red">{{ msg }}</div>
+<input [(ngModel)]="username" placeholder="Username" />
+<input [(ngModel)]="password" type="password" placeholder="Password" />
+<select [(ngModel)]="role">
+  <option>User</option>
+  <option>Admin</option>
+</select>
+<button (click)="submit()">Register</button>

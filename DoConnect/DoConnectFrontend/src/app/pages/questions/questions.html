@@ -1,0 +1,8 @@
+<h2>Questions</h2>
+<input [(ngModel)]="q" placeholder="Search" /><button (click)="search()">Search</button>
+<a routerLink="/ask" *ngIf="role">Ask Question</a>
+<ul>
+  <li *ngFor="let x of list">
+    <a [routerLink]="['/q', x.questionId]">{{ x.title }}</a> - {{ x.status }}
+  </li>
+</ul>

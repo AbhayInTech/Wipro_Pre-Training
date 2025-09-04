@@ -1,0 +1,10 @@
+<h2>{{ q?.title }}</h2>
+<p>{{ q?.text }}</p>
+
+<h3>Answers</h3>
+<div *ngFor="let a of answers">- {{ a.text }} (by {{ a.user }})</div>
+
+<h4>Add Answer</h4>
+<div *ngIf="msg">{{ msg }}</div>
+<textarea [(ngModel)]="text"></textarea>
+<button (click)="submit()">Submit</button>

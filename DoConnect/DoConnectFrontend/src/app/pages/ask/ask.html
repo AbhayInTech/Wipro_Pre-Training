@@ -1,0 +1,5 @@
+<h2>Ask a Question</h2>
+<div *ngIf="msg" style="color: red">{{ msg }}</div>
+<input [(ngModel)]="title" placeholder="Title" />
+<textarea [(ngModel)]="text" placeholder="Details"></textarea>
+<button (click)="submit()">Submit</button>
