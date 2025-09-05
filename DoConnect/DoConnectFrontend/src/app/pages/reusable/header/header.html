@@ -1,22 +1,64 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/">DoConnect</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+  <div class="container">
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold" routerLink="/"> <i class="bi bi-stack"></i> DoConnect </a>
+
+    <!-- Toggler (for mobile) -->
     <button
       class="navbar-toggler"
       type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
+      (click)="toggleNavbar()"
       aria-controls="navbarNav"
-      aria-expanded="false"
+      [attr.aria-expanded]="!isCollapsed"
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+
+    <!-- Menu Items -->
+    <div class="navbar-collapse" [class.collapse]="true" [class.show]="!isCollapsed" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/ask">Ask Question</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/login">Login</a></li>
+        <!-- Common Links -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" (click)="collapseNavbar()">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/questions" (click)="collapseNavbar()">Questions</a>
+        </li>
+
+        <!-- Show Ask button only for logged-in users -->
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/ask" (click)="collapseNavbar()">Ask Question</a>
+        </li>
+
+        <!-- Admin link visible only if role=Admin -->
+        <li class="nav-item" *ngIf="role === 'Admin'">
+          <a class="nav-link" routerLink="/admin" (click)="collapseNavbar()">Admin</a>
+        </li>
+
+        <!-- Authentication Links -->
+        <li class="nav-item dropdown" *ngIf="isLoggedIn">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="userDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-person-circle"></i> {{ username }}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link" routerLink="/login" (click)="collapseNavbar()">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link" routerLink="/register" (click)="collapseNavbar()">Register</a>
+        </li>
       </ul>
     </div>
   </div>

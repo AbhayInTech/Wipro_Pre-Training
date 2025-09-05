@@ -1,5 +1,61 @@
-<h2>Ask a Question</h2>
-<div *ngIf="msg" style="color: red">{{ msg }}</div>
-<input [(ngModel)]="title" placeholder="Title" />
-<textarea [(ngModel)]="text" placeholder="Details"></textarea>
-<button (click)="submit()">Submit</button>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+          <h4 class="mb-0"><i class="bi bi-question-circle"></i> Ask a New Question</h4>
+        </div>
+
+        <div class="card-body">
+          <!-- Success/Error Message -->
+          <div *ngIf="msg" class="alert alert-info">{{ msg }}</div>
+
+          <!-- Question Form -->
+          <form (ngSubmit)="submit()">
+            <!-- Title -->
+            <div class="mb-3">
+              <label class="form-label fw-bold">Question Title</label>
+              <input
+                [(ngModel)]="title"
+                name="title"
+                type="text"
+                class="form-control"
+                placeholder="Enter a short and clear title"
+                required
+              />
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+              <label class="form-label fw-bold">Question Details</label>
+              <textarea
+                [(ngModel)]="text"
+                name="text"
+                rows="5"
+                class="form-control"
+                placeholder="Describe your question in detail"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Images upload -->
+            <div class="mb-3">
+              <label class="form-label">Upload Image</label>
+              <input type="file" (change)="onFileSelected($event)" class="form-control" />
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex justify-content-between">
+              <a routerLink="/" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Cancel
+              </a>
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-send"></i> Submit Question
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

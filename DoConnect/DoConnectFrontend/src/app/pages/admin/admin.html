@@ -1,12 +1,79 @@
-<h2>Admin Dashboard</h2>
-<h3>Pending Questions</h3>
-<div *ngFor="let x of pq">
-  {{ x.title }} — <button (click)="apq(x.questionId)">Approve</button>
-  <button (click)="rjq(x.questionId)">Reject</button>
-</div>
+<div class="container mt-4">
+  <h2 class="text-center text-primary mb-4"><i class="bi bi-speedometer2"></i> Admin Dashboard</h2>
 
-<h3>Pending Answers</h3>
-<div *ngFor="let a of pa">
-  {{ a.text }} — <button (click)="apa(a.answerId)">Approve</button>
-  <button (click)="rja(a.answerId)">Reject</button>
+  <!-- Pending Questions -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-header bg-warning text-dark">
+      <h5 class="mb-0"><i class="bi bi-question-circle"></i> Pending Questions</h5>
+    </div>
+    <div class="card-body">
+      <div *ngIf="pq.length === 0" class="alert alert-success">
+        🎉 No pending questions. All caught up!
+      </div>
+
+      <table *ngIf="pq.length > 0" class="table table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let q of pq">
+            <td>{{ q.title }}</td>
+            <td>
+              <span class="badge bg-secondary">{{ q.status }}</span>
+            </td>
+            <td class="text-end">
+              <button class="btn btn-sm btn-success me-2" (click)="apq(q.questionId)">
+                <i class="bi bi-check-circle"></i> Approve
+              </button>
+              <button class="btn btn-sm btn-danger" (click)="rjq(q.questionId)">
+                <i class="bi bi-x-circle"></i> Reject
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Pending Answers -->
+  <div class="card shadow-sm">
+    <div class="card-header bg-info text-white">
+      <h5 class="mb-0"><i class="bi bi-chat-dots"></i> Pending Answers</h5>
+    </div>
+    <div class="card-body">
+      <div *ngIf="pa.length === 0" class="alert alert-success">
+        🎉 No pending answers. All caught up!
+      </div>
+
+      <table *ngIf="pa.length > 0" class="table table-striped align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Answer</th>
+            <th>Status</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of pa">
+            <td>{{ a.text }}</td>
+            <td>
+              <span class="badge bg-secondary">{{ a.status }}</span>
+            </td>
+            <td class="text-end">
+              <button class="btn btn-sm btn-success me-2" (click)="apa(a.answerId)">
+                <i class="bi bi-check-circle"></i> Approve
+              </button>
+              <button class="btn btn-sm btn-danger" (click)="rja(a.answerId)">
+                <i class="bi bi-x-circle"></i> Reject
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

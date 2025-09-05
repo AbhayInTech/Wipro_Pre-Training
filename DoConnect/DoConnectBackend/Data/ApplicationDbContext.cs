@@ -28,9 +28,9 @@ public class ApplicationDbContext : DbContext
             .HasOne(a => a.Question).WithMany(q => q.Answers).HasForeignKey(a => a.QuestionId);
 
         b.Entity<Image>()
-            .HasOne(i => i.Question).WithMany(q => q.Images).HasForeignKey(i => i.QuestionId).OnDelete(DeleteBehavior.Cascade);
+            .HasOne(i => i.Question).WithMany(q => q.Images).HasForeignKey(i => i.QuestionId).OnDelete(DeleteBehavior.NoAction);
 
         b.Entity<Image>()
-            .HasOne(i => i.Answer).WithMany(a => a.Images).HasForeignKey(i => i.AnswerId).OnDelete(DeleteBehavior.Cascade);
+            .HasOne(i => i.Answer).WithMany(a => a.Images).HasForeignKey(i => i.AnswerId).OnDelete(DeleteBehavior.NoAction);
     }
 }

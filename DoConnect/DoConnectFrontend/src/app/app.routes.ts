@@ -7,15 +7,17 @@ import { QuestionDetail } from './pages/question-detail/question-detail';
 import { Ask } from './pages/ask/ask';
 import { Admin } from './pages/admin/admin';
 import { Welcome } from './pages/welcome/welcome';
+import { AuthGuard } from './guards/auth-guard';
+import { AdminGuard } from './guards/admin-guard';
 
 export const routes: Routes = [
-  // { path: '', component: Questions },
+  { path: 'ask', component: Ask, canActivate: [AuthGuard] },
+  { path: 'questions', component: Questions },
   { path: '', component: Welcome },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
-  { path: 'ask', component: Ask },
   { path: 'q/:id', component: QuestionDetail },
-  { path: 'admin', component: Admin },
+  { path: 'admin', component: Admin, canActivate: [AdminGuard] },
 ];
 
 // @NgModule({ imports: [RouterModule.forRoot(routes)], exports: [RouterModule] })

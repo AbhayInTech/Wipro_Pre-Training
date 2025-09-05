@@ -2,7 +2,14 @@ import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 import { environment } from '../../environments/environment';
 
-type TokenPayload = { name: string; role: string; sub: string; exp: number };
+const Role = `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`;
+
+type TokenPayload = {
+  name: string;
+  [Role]: string;
+  sub: string;
+  exp: number;
+};
 
 export class AuthService {
   tokenKey = 'dc_token';
@@ -35,7 +42,9 @@ export class AuthService {
     const t = this.token;
     if (!t) return null;
     const payload = jwtDecode<TokenPayload>(t);
-    return payload.role || null;
+    // console.log(payload);
+    // console.log(payload[Role]);
+    return payload[Role] || null;
   }
 
   get authHeader() {
