@@ -128,3 +128,73 @@ Day-26
 content and the code is updated in the week five folder
 on 18-08-2025
 consist of code related to ASP.NET Razor Pages.
+
+Day-27
+content and the code is updated in the week five folder
+on 19-08-2025
+consist of code related to advanced Razor Pages features and authentication.
+
+Day-28
+content and the code is updated in the week five folder
+on 20-08-2025
+consist of code related to Entity Framework Core and database migrations.
+
+Day-29
+content and the code is updated in the week five folder
+on 21-08-2025
+consist of code related to API development and integration.
+
+Day-30
+content and the code is updated in the week five folder
+on 22-08-2025
+consist of code related to testing and debugging techniques.
+
+Day-31
+content and the code is updated in the week six folder
+on 23-08-2025
+consist of code related to performance optimization and caching.
+
+Day-32
+content and the code is updated in the week six folder
+on 24-08-2025
+consist of code related to security best practices and authorization.
+
+Day-33
+content and the code is updated in the week six folder
+on 25-08-2025
+consist of code related to deployment and CI/CD pipelines.
+
+Day-34
+content and the code is updated in the week six folder
+on 26-08-2025
+consist of code related to real-time communication using SignalR.
+
+Day-35
+content and the code is updated in the week six folder
+on 27-08-2025
+consist of code related to microservices architecture and service discovery.
+
+Day-36
+content and the code is updated in the week seven folder
+on 28-08-2025
+consist of code related to containerization using Docker.
+
+Day-37
+content and the code is updated in the week seven folder
+on 29-08-2025
+consist of code related to logging and monitoring.
+
+Day-38
+content and the code is updated in the week seven folder
+on 30-08-2025
+consist of code related to advanced frontend frameworks and state management.
+
+Day-39
+content and the code is updated in the week seven folder
+on 31-08-2025
+consist of code related to progressive web apps and offline capabilities.
+
+Day-40
+starting the creation of project DoConnect
+on 02-09-2025
+consist of code related to final project wrap-up and deployment.

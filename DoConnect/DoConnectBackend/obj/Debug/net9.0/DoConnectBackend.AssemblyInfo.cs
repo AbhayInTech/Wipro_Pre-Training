@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DoConnectBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2acd56b94a33dfd334ddfd91add743386bfadf37")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d45ca436c9fdb0f16ce771fa6262a3d3147b2c67")]
 [assembly: System.Reflection.AssemblyProductAttribute("DoConnectBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DoConnectBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
