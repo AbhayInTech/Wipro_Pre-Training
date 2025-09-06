@@ -18,9 +18,11 @@ export class Questions implements OnInit {
     return authService.role;
   }
   async ngOnInit() {
-    this.list = await QuestionService.list(this.includePending);
+    const data = await QuestionService.list(this.includePending);
+    this.list = data.$values || data;
   }
   async search() {
-    this.list = await QuestionService.search(this.q);
+    const data = await QuestionService.search(this.q);
+    this.list = data.$values || data;
   }
 }

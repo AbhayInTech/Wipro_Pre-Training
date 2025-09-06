@@ -1,4 +1,17 @@
+using Microsoft.AspNetCore.Http;
+
 namespace DoConnectBackend.Dtos;
 
-public record CreateQuestionRequest(string Title, string Text);
-public record AnswerCreateRequest(int QuestionId, string Text);
+public class CreateQuestionRequest
+{
+    public string Title { get; set; } = "";
+    public string Text { get; set; } = "";
+    public List<IFormFile> Images { get; set; } = new();
+}
+
+public class AnswerCreateRequest
+{
+    public string QuestionId { get; set; } = "";
+    public string Text { get; set; } = "";
+    public List<IFormFile> Images { get; set; } = new();
+}

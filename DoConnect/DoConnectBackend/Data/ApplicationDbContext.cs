@@ -22,7 +22,7 @@ public class ApplicationDbContext : DbContext
             .HasOne(q => q.User).WithMany(u => u.Questions).HasForeignKey(q => q.UserId);
 
         b.Entity<Answer>()
-            .HasOne(a => a.User).WithMany(u => u.Answers).HasForeignKey(a => a.UserId);
+            .HasOne(a => a.User).WithMany(u => u.Answers).HasForeignKey(a => a.UserId).OnDelete(DeleteBehavior.NoAction);
 
         b.Entity<Answer>()
             .HasOne(a => a.Question).WithMany(q => q.Answers).HasForeignKey(a => a.QuestionId);

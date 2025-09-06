@@ -10,6 +10,20 @@
         <i class="bi bi-person-circle"></i> Posted by: {{ q?.user?.username || 'Anonymous' }}
       </p>
       <span class="badge bg-info mt-2">Status: {{ q?.status }}</span>
+
+      <!-- Display Images -->
+      <div *ngIf="q?.Images?.length > 0" class="mt-3">
+        <h6>Images:</h6>
+        <div class="d-flex flex-wrap">
+          <img
+            *ngFor="let img of q.Images; let i = index"
+            [src]="'http://localhost:5035/api/images/' + id + '/' + i"
+            alt="Question Image"
+            class="img-thumbnail me-2 mb-2"
+            style="max-width: 500px; max-height: 500px; width: 500px; height: auto"
+          />
+        </div>
+      </div>
     </div>
   </div>
 
@@ -27,6 +41,19 @@
           <i class="bi bi-person"></i> {{ a.user }} |
           <span class="badge bg-light text-dark">{{ a.status }}</span>
         </small>
+        <!-- Display Images for Answer -->
+        <div *ngIf="a.images?.length > 0" class="mt-3">
+          <h6>Images:</h6>
+          <div class="d-flex flex-wrap">
+            <img
+              *ngFor="let img of a.images; let i = index"
+              [src]="'http://localhost:5035/api/images/' + img.AnswerId + '/' + i"
+              alt="Answer Image"
+              class="img-thumbnail me-2 mb-2"
+              style="max-width: 500px; max-height: 500px; width: 500px; height: auto"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -47,6 +74,10 @@
             class="form-control"
             placeholder="Write your answer here..."
           ></textarea>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Upload Image</label>
+          <input type="file" (change)="onFileSelected($event)" class="form-control" />
         </div>
         <button type="submit" class="btn btn-success">
           <i class="bi bi-send"></i> Submit Answer

@@ -8,16 +8,20 @@ import { authService } from './auth-service';
 // })
 
 export const AnswerService = {
-  async byQuestion(questionId: number) {
+  async byQuestion(questionId: string) {
     return (await axios.get(`${environment.api}/answers/by-question/${questionId}`)).data;
   },
-  async create(questionId: number, text: string) {
+  async create(questionId: string, text: string, file: any) {
+    const formData = new FormData();
+    formData.append('questionId', questionId);
+    formData.append('text', text);
+    if (file) {
+      formData.append('images', file);
+    }
     return (
-      await axios.post(
-        `${environment.api}/answers`,
-        { questionId, text },
-        { headers: authService.authHeader }
-      )
+      await axios.post(`${environment.api}/answers`, formData, {
+        headers: { ...authService.authHeader, 'Content-Type': 'multipart/form-data' },
+      })
     ).data;
   },
 };

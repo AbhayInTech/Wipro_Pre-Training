@@ -14,10 +14,15 @@ export class Ask {
   title = '';
   text = '';
   msg = '';
+  file: File | null = null;
+
+  onFileSelected(event: any) {
+    this.file = event.target.files[0];
+  }
   constructor(private router: Router) {}
   async submit() {
     try {
-      await QuestionService.create(this.title, this.text);
+      await QuestionService.create(this.title, this.text, this.file);
       this.router.navigateByUrl('/');
     } catch (e: any) {
       this.msg = e?.response?.data || 'Failed';

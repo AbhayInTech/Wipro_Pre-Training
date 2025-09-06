@@ -7,11 +7,11 @@
       <h5 class="mb-0"><i class="bi bi-question-circle"></i> Pending Questions</h5>
     </div>
     <div class="card-body">
-      <div *ngIf="pq.length === 0" class="alert alert-success">
+      <div *ngIf="pq?.$values?.length === 0" class="alert alert-success">
         🎉 No pending questions. All caught up!
       </div>
 
-      <table *ngIf="pq.length > 0" class="table table-hover align-middle">
+      <table *ngIf="pq?.$values?.length > 0" class="table table-hover align-middle">
         <thead class="table-light">
           <tr>
             <th>Title</th>
@@ -20,7 +20,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let q of pq">
+          <tr *ngFor="let q of pq.$values">
             <td>{{ q.title }}</td>
             <td>
               <span class="badge bg-secondary">{{ q.status }}</span>
@@ -45,11 +45,11 @@
       <h5 class="mb-0"><i class="bi bi-chat-dots"></i> Pending Answers</h5>
     </div>
     <div class="card-body">
-      <div *ngIf="pa.length === 0" class="alert alert-success">
+      <div *ngIf="pa?.$values?.length === 0" class="alert alert-success">
         🎉 No pending answers. All caught up!
       </div>
 
-      <table *ngIf="pa.length > 0" class="table table-striped align-middle">
+      <table *ngIf="pa?.$values?.length > 0" class="table table-striped align-middle">
         <thead class="table-light">
           <tr>
             <th>Answer</th>
@@ -58,7 +58,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let a of pa">
+          <tr *ngFor="let a of pa.$values">
             <td>{{ a.text }}</td>
             <td>
               <span class="badge bg-secondary">{{ a.status }}</span>

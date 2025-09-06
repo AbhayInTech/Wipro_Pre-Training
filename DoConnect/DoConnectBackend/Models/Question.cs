@@ -2,7 +2,7 @@ namespace DoConnectBackend.Models;
 
 public class Question
 {
-    public int QuestionId { get; set; }
+    public string QuestionId { get; set; } = default!;
     public int UserId { get; set; }
     public User? User { get; set; }
 

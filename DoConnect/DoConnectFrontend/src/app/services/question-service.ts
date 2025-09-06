@@ -7,19 +7,24 @@ export const QuestionService = {
     const url = `${environment.api}/questions?includePending=${includePending}`;
     return (await axios.get(url)).data;
   },
-  async get(id: number) {
+  async get(id: string) {
     return (await axios.get(`${environment.api}/questions/${id}`)).data;
   },
   async search(q: string) {
     return (await axios.get(`${environment.api}/questions/search`, { params: { q } })).data;
   },
-  async create(title: string, text: string) {
+  async create(title: string, text: string, file: any) {
+    console.log(title, text, file);
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('text', text);
+    if (file) {
+      formData.append('images', file);
+    }
     return (
-      await axios.post(
-        `${environment.api}/questions`,
-        { title, text },
-        { headers: authService.authHeader }
-      )
+      await axios.post(`${environment.api}/questions`, formData, {
+        headers: { ...authService.authHeader, 'Content-Type': 'multipart/form-data' },
+      })
     ).data;
   },
 };

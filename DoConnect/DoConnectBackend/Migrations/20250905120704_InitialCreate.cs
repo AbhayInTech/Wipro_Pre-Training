@@ -29,8 +29,7 @@ namespace DoConnectBackend.Migrations
                 name: "Questions",
                 columns: table => new
                 {
-                    QuestionId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    QuestionId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -51,9 +50,8 @@ namespace DoConnectBackend.Migrations
                 name: "Answers",
                 columns: table => new
                 {
-                    AnswerId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    QuestionId = table.Column<int>(type: "int", nullable: false),
+                    AnswerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    QuestionId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -71,8 +69,7 @@ namespace DoConnectBackend.Migrations
                         name: "FK_Answers_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "UserId");
                 });
 
             migrationBuilder.CreateTable(
@@ -82,8 +79,8 @@ namespace DoConnectBackend.Migrations
                     ImageId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Path = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    QuestionId = table.Column<int>(type: "int", nullable: true),
-                    AnswerId = table.Column<int>(type: "int", nullable: true)
+                    QuestionId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    AnswerId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -92,14 +89,12 @@ namespace DoConnectBackend.Migrations
                         name: "FK_Images_Answers_AnswerId",
                         column: x => x.AnswerId,
                         principalTable: "Answers",
-                        principalColumn: "AnswerId",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "AnswerId");
                     table.ForeignKey(
                         name: "FK_Images_Questions_QuestionId",
                         column: x => x.QuestionId,
                         principalTable: "Questions",
-                        principalColumn: "QuestionId",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "QuestionId");
                 });
 
             migrationBuilder.CreateIndex(

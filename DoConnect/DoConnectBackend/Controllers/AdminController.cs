@@ -21,24 +21,24 @@ public class AdminController : ControllerBase
     public async Task<object> PendingAnswers() =>
         await _db.Answers.Where(a => a.Status == "Pending").ToListAsync();
 
-    [HttpPost("approve/question/{id:int}")]
-    public async Task<IActionResult> ApproveQuestion(int id) =>
+    [HttpPost("approve/question/{id}")]
+    public async Task<IActionResult> ApproveQuestion(string id) =>
         await SetStatusQuestion(id, "Approved");
 
-    [HttpPost("reject/question/{id:int}")]
-    public async Task<IActionResult> RejectQuestion(int id) =>
+    [HttpPost("reject/question/{id}")]
+    public async Task<IActionResult> RejectQuestion(string id) =>
         await SetStatusQuestion(id, "Rejected");
 
-    [HttpPost("approve/answer/{id:int}")]
-    public async Task<IActionResult> ApproveAnswer(int id) =>
+    [HttpPost("approve/answer/{id}")]
+    public async Task<IActionResult> ApproveAnswer(string id) =>
         await SetStatusAnswer(id, "Approved");
 
-    [HttpPost("reject/answer/{id:int}")]
-    public async Task<IActionResult> RejectAnswer(int id) =>
+    [HttpPost("reject/answer/{id}")]
+    public async Task<IActionResult> RejectAnswer(string id) =>
         await SetStatusAnswer(id, "Rejected");
 
-    [HttpDelete("question/{id:int}")]
-    public async Task<IActionResult> DeleteQuestion(int id)
+    [HttpDelete("question/{id}")]
+    public async Task<IActionResult> DeleteQuestion(string id)
     {
         var q = await _db.Questions.FindAsync(id);
         if (q is null) return NotFound();
@@ -47,8 +47,8 @@ public class AdminController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete("answer/{id:int}")]
-    public async Task<IActionResult> DeleteAnswer(int id)
+    [HttpDelete("answer/{id}")]
+    public async Task<IActionResult> DeleteAnswer(string id)
     {
         var a = await _db.Answers.FindAsync(id);
         if (a is null) return NotFound();
@@ -57,7 +57,7 @@ public class AdminController : ControllerBase
         return NoContent();
     }
 
-    private async Task<IActionResult> SetStatusQuestion(int id, string status)
+    private async Task<IActionResult> SetStatusQuestion(string id, string status)
     {
         var q = await _db.Questions.FindAsync(id);
         if (q is null) return NotFound();
@@ -66,7 +66,7 @@ public class AdminController : ControllerBase
         return Ok();
     }
 
-    private async Task<IActionResult> SetStatusAnswer(int id, string status)
+    private async Task<IActionResult> SetStatusAnswer(string id, string status)
     {
         var a = await _db.Answers.FindAsync(id);
         if (a is null) return NotFound();

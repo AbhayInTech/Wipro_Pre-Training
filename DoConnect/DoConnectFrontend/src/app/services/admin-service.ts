@@ -17,7 +17,7 @@ export const AdminService = {
       })
     ).data;
   },
-  async approveQuestion(id: number) {
+  async approveQuestion(id: string) {
     return (
       await axios.post(
         `${environment.api}/admin/approve/question/${id}`,
@@ -26,7 +26,7 @@ export const AdminService = {
       )
     ).data;
   },
-  async rejectQuestion(id: number) {
+  async rejectQuestion(id: string) {
     return (
       await axios.post(
         `${environment.api}/admin/reject/question/${id}`,
@@ -35,7 +35,7 @@ export const AdminService = {
       )
     ).data;
   },
-  async approveAnswer(id: number) {
+  async approveAnswer(id: string) {
     return (
       await axios.post(
         `${environment.api}/admin/approve/answer/${id}`,
@@ -44,7 +44,7 @@ export const AdminService = {
       )
     ).data;
   },
-  async rejectAnswer(id: number) {
+  async rejectAnswer(id: string) {
     return (
       await axios.post(
         `${environment.api}/admin/reject/answer/${id}`,

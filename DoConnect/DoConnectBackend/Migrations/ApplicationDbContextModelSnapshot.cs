@@ -23,14 +23,12 @@ namespace DoConnectBackend.Migrations
 
             modelBuilder.Entity("DoConnectBackend.Models.Answer", b =>
                 {
-                    b.Property<int>("AnswerId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("AnswerId")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AnswerId"));
-
-                    b.Property<int>("QuestionId")
-                        .HasColumnType("int");
+                    b.Property<string>("QuestionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -60,15 +58,15 @@ namespace DoConnectBackend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImageId"));
 
-                    b.Property<int?>("AnswerId")
-                        .HasColumnType("int");
+                    b.Property<string>("AnswerId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Path")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("QuestionId")
-                        .HasColumnType("int");
+                    b.Property<string>("QuestionId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ImageId");
 
@@ -81,11 +79,8 @@ namespace DoConnectBackend.Migrations
 
             modelBuilder.Entity("DoConnectBackend.Models.Question", b =>
                 {
-                    b.Property<int>("QuestionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuestionId"));
+                    b.Property<string>("QuestionId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -148,7 +143,7 @@ namespace DoConnectBackend.Migrations
                     b.HasOne("DoConnectBackend.Models.User", "User")
                         .WithMany("Answers")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Question");
