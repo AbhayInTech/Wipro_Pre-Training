@@ -1,79 +1,209 @@
 <div class="container mt-4">
   <h2 class="text-center text-primary mb-4"><i class="bi bi-speedometer2"></i> Admin Dashboard</h2>
 
-  <!-- Pending Questions -->
-  <div class="card shadow-sm mb-4">
-    <div class="card-header bg-warning text-dark">
-      <h5 class="mb-0"><i class="bi bi-question-circle"></i> Pending Questions</h5>
-    </div>
-    <div class="card-body">
-      <div *ngIf="pq?.$values?.length === 0" class="alert alert-success">
-        🎉 No pending questions. All caught up!
+  <!-- Dashboard Stats Row -->
+  <div class="row mb-4">
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="bi bi-question-circle-fill text-warning fs-1"></i>
+          <h5 class="card-title">Pending Questions</h5>
+          <p class="card-text fs-3">{{ pq?.$values?.length || 0 }}</p>
+        </div>
       </div>
-
-      <table *ngIf="pq?.$values?.length > 0" class="table table-hover align-middle">
-        <thead class="table-light">
-          <tr>
-            <th>Title</th>
-            <th>Status</th>
-            <th class="text-end">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let q of pq.$values">
-            <td>{{ q.title }}</td>
-            <td>
-              <span class="badge bg-secondary">{{ q.status }}</span>
-            </td>
-            <td class="text-end">
-              <button class="btn btn-sm btn-success me-2" (click)="apq(q.questionId)">
-                <i class="bi bi-check-circle"></i> Approve
-              </button>
-              <button class="btn btn-sm btn-danger" (click)="rjq(q.questionId)">
-                <i class="bi bi-x-circle"></i> Reject
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="bi bi-chat-dots-fill text-info fs-1"></i>
+          <h5 class="card-title">Pending Answers</h5>
+          <p class="card-text fs-3">{{ pa?.$values?.length || 0 }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="bi bi-x-circle-fill text-danger fs-1"></i>
+          <h5 class="card-title">Rejected Questions</h5>
+          <p class="card-text fs-3">{{ rq?.$values?.length || 0 }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="bi bi-x-circle-fill text-danger fs-1"></i>
+          <h5 class="card-title">Rejected Answers</h5>
+          <p class="card-text fs-3">{{ ra?.$values?.length || 0 }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="bi bi-check-circle-fill text-success fs-1"></i>
+          <h5 class="card-title">Approved Questions</h5>
+          <p class="card-text fs-3">{{ aq?.$values?.length || 0 }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="bi bi-check-circle-fill text-success fs-1"></i>
+          <h5 class="card-title">Approved Answers</h5>
+          <p class="card-text fs-3">{{ aa?.$values?.length || 0 }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="bi bi-people-fill text-success fs-1"></i>
+          <h5 class="card-title">Total Users</h5>
+          <p class="card-text fs-3">{{ totalUsers || 0 }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <i class="bi bi-bar-chart-fill text-primary fs-1"></i>
+          <h5 class="card-title">Total Questions</h5>
+          <p class="card-text fs-3">{{ totalQuestions || 0 }}</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Pending Answers -->
-  <div class="card shadow-sm">
-    <div class="card-header bg-info text-white">
-      <h5 class="mb-0"><i class="bi bi-chat-dots"></i> Pending Answers</h5>
-    </div>
-    <div class="card-body">
-      <div *ngIf="pa?.$values?.length === 0" class="alert alert-success">
-        🎉 No pending answers. All caught up!
+  <!-- Manage Sections -->
+  <div class="row">
+    <!-- Manage Questions -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-header bg-warning text-dark">
+          <h5 class="mb-0"><i class="bi bi-question-circle"></i> Manage Questions</h5>
+        </div>
+        <div class="card-body">
+          <div *ngIf="pq?.$values?.length === 0" class="alert alert-success">
+            🎉 No pending questions. All caught up!
+          </div>
+          <table *ngIf="pq?.$values?.length > 0" class="table table-hover align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Title</th>
+                <th>Status</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let q of pq.$values">
+                <td>{{ q.title }}</td>
+                <td>
+                  <span class="badge bg-secondary">{{ q.status }}</span>
+                </td>
+                <td class="text-end">
+                  <button class="btn btn-sm btn-success me-2" (click)="apq(q.questionId)">
+                    <i class="bi bi-check-circle"></i> Approve
+                  </button>
+                  <button class="btn btn-sm btn-danger" (click)="rjq(q.questionId)">
+                    <i class="bi bi-x-circle"></i> Reject
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-outline-primary mt-3" (click)="viewAllQuestions()">
+            View All Questions
+          </button>
+        </div>
       </div>
+    </div>
 
-      <table *ngIf="pa?.$values?.length > 0" class="table table-striped align-middle">
-        <thead class="table-light">
-          <tr>
-            <th>Answer</th>
-            <th>Status</th>
-            <th class="text-end">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let a of pa.$values">
-            <td>{{ a.text }}</td>
-            <td>
-              <span class="badge bg-secondary">{{ a.status }}</span>
-            </td>
-            <td class="text-end">
-              <button class="btn btn-sm btn-success me-2" (click)="apa(a.answerId)">
-                <i class="bi bi-check-circle"></i> Approve
-              </button>
-              <button class="btn btn-sm btn-danger" (click)="rja(a.answerId)">
-                <i class="bi bi-x-circle"></i> Reject
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Manage Answers -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-header bg-info text-white">
+          <h5 class="mb-0"><i class="bi bi-chat-dots"></i> Manage Answers</h5>
+        </div>
+        <div class="card-body">
+          <div *ngIf="pa?.$values?.length === 0" class="alert alert-success">
+            🎉 No pending answers. All caught up!
+          </div>
+          <table *ngIf="pa?.$values?.length > 0" class="table table-striped align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Answer</th>
+                <th>Status</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let a of pa.$values">
+                <td>{{ a.text }}</td>
+                <td>
+                  <span class="badge bg-secondary">{{ a.status }}</span>
+                </td>
+                <td class="text-end">
+                  <button class="btn btn-sm btn-success me-2" (click)="apa(a.answerId)">
+                    <i class="bi bi-check-circle"></i> Approve
+                  </button>
+                  <button class="btn btn-sm btn-danger" (click)="rja(a.answerId)">
+                    <i class="bi bi-x-circle"></i> Reject
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-outline-primary mt-3" (click)="viewAllAnswers()">
+            View All Answers
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Manage Users -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+          <h5 class="mb-0"><i class="bi bi-people"></i> Manage Users</h5>
+        </div>
+        <div class="card-body">
+          <p>Here you can manage user accounts, roles, and permissions.</p>
+          <button class="btn btn-outline-success" (click)="manageUsers()">Manage Users</button>
+          <!-- Placeholder for user list or actions -->
+          <div *ngIf="users?.$values?.length > 0" class="mt-3">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Role</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users.$values">
+                  <td>{{ user.username }}</td>
+                  <td>{{ user.role }}</td>
+                  <td>
+                    <button class="btn btn-sm btn-warning me-2" (click)="editUser(user.userId)">
+                      Edit
+                    </button>
+                    <button class="btn btn-sm btn-danger" (click)="deleteUser(user.userId)">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

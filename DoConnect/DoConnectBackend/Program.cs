@@ -33,6 +33,7 @@ builder.Services.AddSwaggerGen(c =>
     c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement {
         { jwtScheme, Array.Empty<string>() }
     });
+    // EnableAnnotations is removed in Swashbuckle.AspNetCore 6.0+, annotations are enabled by default
 });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

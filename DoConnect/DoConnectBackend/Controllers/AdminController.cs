@@ -21,6 +21,22 @@ public class AdminController : ControllerBase
     public async Task<object> PendingAnswers() =>
         await _db.Answers.Where(a => a.Status == "Pending").ToListAsync();
 
+    [HttpGet("rejected/questions")]
+    public async Task<object> RejectedQuestions() =>
+        await _db.Questions.Where(q => q.Status == "Rejected").ToListAsync();
+
+    [HttpGet("rejected/answers")]
+    public async Task<object> RejectedAnswers() =>
+        await _db.Answers.Where(a => a.Status == "Rejected").ToListAsync();
+
+    [HttpGet("approved/questions")]
+    public async Task<object> ApprovedQuestions() =>
+        await _db.Questions.Where(q => q.Status == "Approved").ToListAsync();
+
+    [HttpGet("approved/answers")]
+    public async Task<object> ApprovedAnswers() =>
+        await _db.Answers.Where(a => a.Status == "Approved").ToListAsync();
+
     [HttpPost("approve/question/{id}")]
     public async Task<IActionResult> ApproveQuestion(string id) =>
         await SetStatusQuestion(id, "Approved");
@@ -73,5 +89,28 @@ public class AdminController : ControllerBase
         a.Status = status;
         await _db.SaveChangesAsync();
         return Ok();
+    }
+
+    [HttpGet("total/users")]
+    public async Task<int> GetTotalUsers() =>
+        await _db.Users.CountAsync();
+
+    [HttpGet("total/questions")]
+    public async Task<int> GetTotalQuestions() =>
+        await _db.Questions.CountAsync();
+
+    [HttpGet("users")]
+    public async Task<object> GetUsers() =>
+        await _db.Users.Select(u => new { u.UserId, u.Username, u.Role }).ToListAsync();
+
+    [HttpDelete("user/{id}")]
+    public async Task<IActionResult> DeleteUser(string id)
+    {
+        if (!int.TryParse(id, out var userId)) return BadRequest("Invalid user ID");
+        var user = await _db.Users.FindAsync(userId);
+        if (user is null) return NotFound();
+        _db.Users.Remove(user);
+        await _db.SaveChangesAsync();
+        return NoContent();
     }
 }
