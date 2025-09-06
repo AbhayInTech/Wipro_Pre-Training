@@ -16,9 +16,9 @@ export class Admin implements OnInit {
   }
   async refresh() {
     this.pq = await AdminService.pendingQuestions();
-    console.log(this.pq);
+    // console.log(this.pq);
     this.pa = await AdminService.pendingAnswers();
-    console.log(this.pa);
+    // console.log(this.pa);
   }
   async apq(id: string) {
     await AdminService.approveQuestion(id);

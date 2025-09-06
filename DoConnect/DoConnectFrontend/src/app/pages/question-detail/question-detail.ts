@@ -62,10 +62,13 @@ export class QuestionDetail implements OnInit {
       for (const answer of this.answers) {
         // console.log(this.answers);
         if (answer.imageIDs) {
+          // console.log(answer.imageIDs);
           let answerImageIDs: string[];
           if (answer.imageIDs.includes(',')) {
-            answerImageIDs = answer.ImageIDs.split(',');
+            // console.log('split');
+            answerImageIDs = answer.imageIDs.split(',');
           } else {
+            // console.log('non-split');
             answerImageIDs = [answer.imageIDs];
           }
           answer.images = answerImageIDs.map((id: string) => {

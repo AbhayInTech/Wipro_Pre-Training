@@ -19,12 +19,17 @@ export class Login {
   constructor(private router: Router) {}
   async submit() {
     try {
-      console.log(this.username, this.password);
+      // console.log(this.username, this.password);
       // login function returns response object so we have to store it in a variable
 
       this.response = await authService.login(this.username, this.password);
-      console.log(this.response);
-      this.router.navigateByUrl('/');
+      // console.log(this.response);
+      if (this.response.role === 'User') {
+        this.router.navigateByUrl('/questions');
+      }
+      if (this.response.role === 'Admin') {
+        this.router.navigateByUrl('/admin');
+      }
     } catch (e: any) {
       this.msg = e?.response?.data || 'Login failed';
     }

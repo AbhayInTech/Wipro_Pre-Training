@@ -11,11 +11,35 @@
           <form (ngSubmit)="submit()">
             <div class="mb-3">
               <label class="form-label">Username</label>
-              <input [(ngModel)]="username" name="username" class="form-control" />
+              <input
+                [(ngModel)]="username"
+                name="username"
+                class="form-control"
+                (input)="validate()"
+              />
+              <small class="text-danger" *ngIf="usernameError">{{ usernameError }}</small>
             </div>
             <div class="mb-3">
-              <label class="form-label">Password</label>
-              <input [(ngModel)]="password" name="password" type="password" class="form-control" />
+              <label class="form-label">Enter Password</label>
+              <input
+                [(ngModel)]="password"
+                name="password"
+                type="password"
+                class="form-control"
+                (input)="validate()"
+              />
+              <small class="text-danger" *ngIf="passwordError">{{ passwordError }}</small>
+            </div>
+            <div class="mb-3">
+              <label class="form-label"> Confirm Password</label>
+              <input
+                [(ngModel)]="Confirm_password"
+                name="Confirm_password"
+                type="password"
+                class="form-control"
+                (input)="validate()"
+              />
+              <small class="text-danger" *ngIf="confirmError">{{ confirmError }}</small>
             </div>
             <div class="mb-3">
               <label class="form-label">Role</label>
@@ -24,7 +48,9 @@
                 <option>Admin</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Register</button>
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!isFormValid">
+              Register
+            </button>
           </form>
         </div>
         <div class="card-footer text-center">
