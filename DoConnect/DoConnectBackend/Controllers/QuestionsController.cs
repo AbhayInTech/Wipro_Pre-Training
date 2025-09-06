@@ -24,7 +24,7 @@ public class QuestionsController : ControllerBase
             .Include(x => x.User)
             .Where(x => includePending || x.Status == "Approved")
             .OrderByDescending(x => x.QuestionId)
-            .Select(x => new { x.QuestionId, x.Title, x.Text, x.Status, user = x.User!.Username });
+            .Select(x => new { x.QuestionId, x.Title, x.Text, x.Status, user = x.User != null ? x.User.Username : "Unknown" });
 
         return await q.ToListAsync();
     }
@@ -47,7 +47,7 @@ public class QuestionsController : ControllerBase
             q.Title,
             q.Text,
             q.Status,
-            User = new { q.User.UserId, q.User.Username },
+            User = q.User != null ? new { q.User.UserId, q.User.Username } : null,
             Answers = q.Answers.Select(a => new
             {
                 a.AnswerId,

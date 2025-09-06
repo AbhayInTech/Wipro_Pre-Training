@@ -9,6 +9,7 @@ import { Admin } from './pages/admin/admin';
 import { Welcome } from './pages/welcome/welcome';
 import { AuthGuard } from './guards/auth-guard';
 import { AdminGuard } from './guards/admin-guard';
+import { ManageUser } from './pages/manage-user/manage-user';
 
 export const routes: Routes = [
   { path: 'ask', component: Ask, canActivate: [AuthGuard] },
@@ -18,6 +19,7 @@ export const routes: Routes = [
   { path: 'register', component: Register },
   { path: 'q/:id', component: QuestionDetail, canActivate: [AuthGuard] },
   { path: 'admin', component: Admin, canActivate: [AdminGuard] },
+  { path: 'manage', component: ManageUser, canActivate: [AdminGuard] },
 ];
 
 // @NgModule({ imports: [RouterModule.forRoot(routes)], exports: [RouterModule] })

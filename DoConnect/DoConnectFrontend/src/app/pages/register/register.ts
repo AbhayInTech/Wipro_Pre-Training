@@ -47,7 +47,7 @@ export class Register {
       return;
     }
     try {
-      console.log(this.username, this.password);
+      // console.log(this.username, this.password);
       await authService.register(this.username, this.password, this.role);
       this.router.navigateByUrl('/');
     } catch (e: any) {

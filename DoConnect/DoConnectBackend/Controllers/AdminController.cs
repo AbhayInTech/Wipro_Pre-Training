@@ -56,8 +56,36 @@ public class AdminController : ControllerBase
     [HttpDelete("question/{id}")]
     public async Task<IActionResult> DeleteQuestion(string id)
     {
-        var q = await _db.Questions.FindAsync(id);
+        var q = await _db.Questions
+            .Include(q => q.Answers)
+            .FirstOrDefaultAsync(q => q.QuestionId == id);
+
         if (q is null) return NotFound();
+
+        // Delete all images associated with the question
+        var questionImages = await _db.Images.Where(i => i.QuestionId == id).ToListAsync();
+        foreach (var image in questionImages)
+        {
+            _db.Images.Remove(image);
+        }
+
+        // Delete all images associated with answers of this question
+        foreach (var answer in q.Answers)
+        {
+            var answerImages = await _db.Images.Where(i => i.AnswerId == answer.AnswerId).ToListAsync();
+            foreach (var image in answerImages)
+            {
+                _db.Images.Remove(image);
+            }
+        }
+
+        // Delete all answers associated with the question
+        foreach (var answer in q.Answers)
+        {
+            _db.Answers.Remove(answer);
+        }
+
+        // Delete the question itself
         _db.Questions.Remove(q);
         await _db.SaveChangesAsync();
         return NoContent();
@@ -112,5 +140,35 @@ public class AdminController : ControllerBase
         _db.Users.Remove(user);
         await _db.SaveChangesAsync();
         return NoContent();
+    }
+
+    [HttpGet("questions-with-answers-and-users")]
+    public async Task<object> GetQuestionsWithAnswersAndUsers()
+    {
+        var questions = await _db.Questions
+            .Include(q => q.User)
+            .Include(q => q.Answers)
+                .ThenInclude(a => a.User)
+            .ToListAsync();
+
+        var result = questions.Select(q => new
+        {
+            QuestionId = q.QuestionId,
+            Title = q.Title,
+            Text = q.Text,
+            Status = q.Status,
+            UserId = q.UserId,
+            AskedBy = q.User != null ? new { q.User.UserId, q.User.Username } : null,
+            Answers = q.Answers.Select(a => new
+            {
+                AnswerId = a.AnswerId,
+                Text = a.Text,
+                Status = a.Status,
+                UserId = a.UserId,
+                AnsweredBy = a.User != null ? new { a.User.UserId, a.User.Username } : null
+            }).ToList()
+        });
+
+        return Ok(result);
     }
 }

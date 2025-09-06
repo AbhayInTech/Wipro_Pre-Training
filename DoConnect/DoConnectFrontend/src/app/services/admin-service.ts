@@ -109,4 +109,25 @@ export const AdminService = {
       })
     ).data;
   },
+  async getQuestionsWithAnswersAndUsers() {
+    return (
+      await axios.get(`${environment.api}/admin/questions-with-answers-and-users`, {
+        headers: authService.authHeader,
+      })
+    ).data;
+  },
+  async deleteQuestion(id: string) {
+    return (
+      await axios.delete(`${environment.api}/admin/question/${id}`, {
+        headers: authService.authHeader,
+      })
+    ).data;
+  },
+  async deleteAnswer(id: string) {
+    return (
+      await axios.delete(`${environment.api}/admin/answer/${id}`, {
+        headers: authService.authHeader,
+      })
+    ).data;
+  },
 };

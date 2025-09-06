@@ -67,6 +67,6 @@ export class Admin implements OnInit {
   }
   manageUsers() {
     // Placeholder: Navigate to user management page or implement logic
-    console.log('Manage users');
+    window.location.href = '/manage';
   }
 }
