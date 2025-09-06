@@ -20,9 +20,9 @@ public class AnswersController : ControllerBase
     {
         return await _db.Answers
             .Include(a => a.User)
-            .Include(a => a.Images)
+            //.Include(a => a.Images) // Removed as Images property no longer exists
             .Where(a => a.QuestionId == questionId && a.Status == "Approved")
-            .Select(a => new { a.AnswerId, a.Text, a.Status, user = a.User!.Username, images = a.Images })
+            .Select(a => new { a.AnswerId, a.Text, a.Status, user = a.User!.Username, ImageIDs = a.ImageIDs })
             .ToListAsync();
     }
 
@@ -39,12 +39,17 @@ public class AnswersController : ControllerBase
         var answerId = "a" + nextId;
         var ans = new Answer { AnswerId = answerId, QuestionId = req.QuestionId, UserId = userId, Text = req.Text, Status = "Pending" };
 
+        _db.Answers.Add(ans);
+        await _db.SaveChangesAsync();
+
         // Handle image uploads
         var uploadsDir = Path.Combine("wwwroot", "uploads");
         if (!Directory.Exists(uploadsDir))
         {
             Directory.CreateDirectory(uploadsDir);
         }
+
+        var imageIDs = new List<string>();
 
         foreach (var file in req.Images)
         {
@@ -56,11 +61,17 @@ public class AnswersController : ControllerBase
                 {
                     await file.CopyToAsync(stream);
                 }
-                ans.Images.Add(new Image { Path = "/uploads/" + fileName });
+                var img = new Image { Path = "/uploads/" + fileName, ImageID = Guid.NewGuid().ToString(), AnswerId = answerId };
+                _db.Images.Add(img);
+                await _db.SaveChangesAsync();
+
+                // img.ImageID = "i" + img.ImageID.ToString(); // Removed because ImageID is now a GUID string
+
+                imageIDs.Add(img.ImageID);
             }
         }
 
-        _db.Answers.Add(ans);
+        ans.ImageIDs = string.Join(',', imageIDs);
         await _db.SaveChangesAsync();
         return Ok(ans);
     }

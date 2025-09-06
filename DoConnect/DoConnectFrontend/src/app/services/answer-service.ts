@@ -11,12 +11,14 @@ export const AnswerService = {
   async byQuestion(questionId: string) {
     return (await axios.get(`${environment.api}/answers/by-question/${questionId}`)).data;
   },
-  async create(questionId: string, text: string, file: any) {
+  async create(questionId: string, text: string, files: File[]) {
     const formData = new FormData();
     formData.append('questionId', questionId);
     formData.append('text', text);
-    if (file) {
-      formData.append('images', file);
+    if (files && files.length > 0) {
+      for (const file of files) {
+        formData.append('images', file);
+      }
     }
     return (
       await axios.post(`${environment.api}/answers`, formData, {

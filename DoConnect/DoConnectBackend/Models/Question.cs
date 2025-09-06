@@ -11,5 +11,7 @@ public class Question
     public string Status { get; set; } = "Pending"; // Pending/Approved/Rejected
 
     public ICollection<Answer> Answers { get; set; } = new List<Answer>();
-    public ICollection<Image> Images { get; set; } = new List<Image>();
+
+    // New property to store comma-separated image IDs like "i1,i2"
+    public string? ImageIDs { get; set; }
 }

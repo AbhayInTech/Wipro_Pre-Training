@@ -27,8 +27,14 @@ public class ImagesController : ControllerBase
         using var fs = System.IO.File.Create(full);
         await file.CopyToAsync(fs);
 
+        // Generate unique string ImageID like "i" + ImageId (auto-increment)
         var img = new Image { Path = $"/uploads/{name}", QuestionId = questionId, AnswerId = answerId };
+
         _db.Images.Add(img);
+        await _db.SaveChangesAsync();
+
+        // After saving, set ImageID as "i" + ImageId and update
+        img.ImageID = "i" + img.ImageID.ToString();
         await _db.SaveChangesAsync();
 
         return Ok(img);
@@ -40,14 +46,14 @@ public class ImagesController : ControllerBase
         Image? img = null;
         if (id.StartsWith("q"))
         {
-            var images = await _db.Images.Where(i => i.QuestionId == id && i.AnswerId == null).OrderBy(i => i.ImageId).ToListAsync();
-            if (index >= images.Count) return NotFound();
+            var images = await _db.Images.Where(i => i.QuestionId == id && i.AnswerId == null).OrderBy(i => i.ImageID).ToListAsync();
+            if (index < 0 || index >= images.Count) return BadRequest("Invalid index.");
             img = images[index];
         }
         else if (id.StartsWith("a"))
         {
-            var images = await _db.Images.Where(i => i.AnswerId == id && i.QuestionId == null).OrderBy(i => i.ImageId).ToListAsync();
-            if (index >= images.Count) return NotFound();
+            var images = await _db.Images.Where(i => i.AnswerId == id && i.QuestionId == null).OrderBy(i => i.ImageID).ToListAsync();
+            if (index < 0 || index >= images.Count) return BadRequest("Invalid index.");
             img = images[index];
         }
         else
@@ -74,26 +80,57 @@ public class ImagesController : ControllerBase
         return File(fileBytes, contentType);
     }
 
+    [HttpGet("by-imageid/{imageId}")]
+    public async Task<IActionResult> GetByImageId(string imageId)
+    {
+        var img = await _db.Images.FirstOrDefaultAsync(i => i.ImageID == imageId);
+        if (img == null) return NotFound();
+
+        var path = img.Path.StartsWith("/") ? img.Path : "/" + img.Path;
+        var fullPath = Path.Combine(_env.WebRootPath, path.TrimStart('/'));
+        if (!System.IO.File.Exists(fullPath)) return NotFound();
+
+        var ext = Path.GetExtension(fullPath).ToLowerInvariant();
+        var contentType = ext switch
+        {
+            ".jpg" or ".jpeg" => "image/jpeg",
+            ".png" => "image/png",
+            ".gif" => "image/gif",
+            _ => "application/octet-stream"
+        };
+
+        var fileBytes = await System.IO.File.ReadAllBytesAsync(fullPath);
+        return File(fileBytes, contentType);
+    }
+
     [HttpGet("by-question-or-answer")]
     public async Task<ActionResult<IEnumerable<object>>> GetByQuestionOrAnswer([FromQuery] string? questionId, [FromQuery] string? answerId)
     {
         if (string.IsNullOrEmpty(questionId) && string.IsNullOrEmpty(answerId))
             return BadRequest("Either questionId or answerId must be provided.");
 
-        var query = _db.Images.AsQueryable();
-
         if (!string.IsNullOrEmpty(questionId))
         {
-            // Get images for the question or for answers to the question
-            var answerIds = await _db.Answers.Where(a => a.QuestionId == questionId).Select(a => a.AnswerId).ToListAsync();
-            query = query.Where(img => img.QuestionId == questionId || answerIds.Contains(img.AnswerId!));
+            var question = await _db.Questions.FindAsync(questionId);
+            if (question == null) return NotFound("Question not found.");
+
+            var imageIDs = question.ImageIDs?.Split(',', StringSplitOptions.RemoveEmptyEntries) ?? Array.Empty<string>();
+            var images = await _db.Images.Where(img => imageIDs.Contains(img.ImageID)).Select(img => new { img.ImageID, img.Path }).ToListAsync();
+
+            return Ok(images);
         }
 
         if (!string.IsNullOrEmpty(answerId))
-            query = query.Where(img => img.AnswerId == answerId && img.QuestionId == null);
+        {
+            var answer = await _db.Answers.FindAsync(answerId);
+            if (answer == null) return NotFound("Answer not found.");
 
-        var images = await query.Select(img => new { img.ImageId, img.Path, img.QuestionId, img.AnswerId }).ToListAsync();
+            var imageIDs = answer.ImageIDs?.Split(',', StringSplitOptions.RemoveEmptyEntries) ?? Array.Empty<string>();
+            var images = await _db.Images.Where(img => imageIDs.Contains(img.ImageID)).Select(img => new { img.ImageID, img.Path }).ToListAsync();
 
-        return Ok(images);
+            return Ok(images);
+        }
+
+        return BadRequest("Invalid request.");
     }
 }

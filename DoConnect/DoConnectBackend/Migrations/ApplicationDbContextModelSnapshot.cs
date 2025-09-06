@@ -26,6 +26,9 @@ namespace DoConnectBackend.Migrations
                     b.Property<string>("AnswerId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ImageIDs")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("QuestionId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -52,11 +55,8 @@ namespace DoConnectBackend.Migrations
 
             modelBuilder.Entity("DoConnectBackend.Models.Image", b =>
                 {
-                    b.Property<int>("ImageId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImageId"));
+                    b.Property<string>("ImageID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("AnswerId")
                         .HasColumnType("nvarchar(450)");
@@ -68,7 +68,7 @@ namespace DoConnectBackend.Migrations
                     b.Property<string>("QuestionId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("ImageId");
+                    b.HasKey("ImageID");
 
                     b.HasIndex("AnswerId");
 
@@ -81,6 +81,9 @@ namespace DoConnectBackend.Migrations
                 {
                     b.Property<string>("QuestionId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ImageIDs")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -154,14 +157,12 @@ namespace DoConnectBackend.Migrations
             modelBuilder.Entity("DoConnectBackend.Models.Image", b =>
                 {
                     b.HasOne("DoConnectBackend.Models.Answer", "Answer")
-                        .WithMany("Images")
-                        .HasForeignKey("AnswerId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .WithMany()
+                        .HasForeignKey("AnswerId");
 
                     b.HasOne("DoConnectBackend.Models.Question", "Question")
-                        .WithMany("Images")
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .WithMany()
+                        .HasForeignKey("QuestionId");
 
                     b.Navigation("Answer");
 
@@ -179,16 +180,9 @@ namespace DoConnectBackend.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("DoConnectBackend.Models.Answer", b =>
-                {
-                    b.Navigation("Images");
-                });
-
             modelBuilder.Entity("DoConnectBackend.Models.Question", b =>
                 {
                     b.Navigation("Answers");
-
-                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("DoConnectBackend.Models.User", b =>

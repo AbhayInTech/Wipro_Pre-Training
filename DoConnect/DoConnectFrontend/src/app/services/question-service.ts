@@ -13,13 +13,15 @@ export const QuestionService = {
   async search(q: string) {
     return (await axios.get(`${environment.api}/questions/search`, { params: { q } })).data;
   },
-  async create(title: string, text: string, file: any) {
-    console.log(title, text, file);
+  async create(title: string, text: string, files: File[]) {
+    console.log(title, text, files);
     const formData = new FormData();
     formData.append('title', title);
     formData.append('text', text);
-    if (file) {
-      formData.append('images', file);
+    if (files && files.length > 0) {
+      for (const file of files) {
+        formData.append('images', file);
+      }
     }
     return (
       await axios.post(`${environment.api}/questions`, formData, {

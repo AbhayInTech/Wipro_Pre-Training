@@ -1,21 +1,8 @@
-# TODO: Change AnswerId and QuestionId to string
+# Enable Multiple Image File Selection
 
-## Backend Changes
+## Tasks
 
-- [x] Update Models: Answer.cs, Question.cs, Image.cs
-- [x] Update DTOs: QuestionDtos.cs
-- [x] Update Controllers: AnswersController.cs, QuestionsController.cs, ImagesController.cs, AdminController.cs
-- [x] Update DbContext: ApplicationDbContext.cs
-- [x] Create new migration
-- [x] Add ID generation logic (q1, a1, etc.)
-
-## Frontend Changes
-
-- [x] Update Services: answer-service.ts, question-service.ts
-- [x] Update Pages: question-detail.ts and others
-- [ ] Test application
-
-## Followup
-
-- [ ] Apply migration to database
-- [ ] Verify ID generation (q1, a1, etc.)
+- [x] Update question-detail.html: Add `multiple` attribute to file input
+- [x] Update question-detail.ts: Modify `onFileSelected` to handle multiple files (store as File[] array)
+- [x] Update answer-service.ts: Modify `create` method to append multiple files to FormData
+- [x] Update question-detail.ts: Modify `submit` method to pass multiple files

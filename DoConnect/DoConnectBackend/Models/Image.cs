@@ -1,8 +1,12 @@
 namespace DoConnectBackend.Models;
 
+using System.ComponentModel.DataAnnotations;
+
 public class Image
 {
-    public int ImageId { get; set; }
+    [Key]
+    public string ImageID { get; set; } = default!;
+
     public string Path { get; set; } = default!;
     public string? QuestionId { get; set; }
     public Question? Question { get; set; }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { QuestionService } from '../../services/question-service';
 import { AnswerService } from '../../services/answer-service';
+import { ImageService } from '../../services/image-service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -27,35 +28,72 @@ export class QuestionDetail implements OnInit {
 
     // Fetch images for the question and answers
     try {
-      const response = await fetch(
-        `http://localhost:5035/api/images/by-question-or-answer?questionId=${this.id}`
-      );
-      if (response.ok) {
-        const images = await response.json();
-        const allImages = images.$values || images;
-        // Assign images to question
-        this.q.Images = allImages.filter((img: any) => !img.answerId);
-        // Assign images to answers
-        this.answers.forEach((a: any) => {
-          a.images = allImages.filter((img: any) => img.answerId === a.AnswerId);
+      // console.log(this.q);
+      // console.log(this.q.imageIDs);
+
+      // Clear previous images if any
+      this.q.Images = [];
+      for (const answer of this.answers) {
+        answer.images = [];
+      }
+
+      // For question, get ImageIDs string and map to image URLs
+      if (this.q.imageIDs) {
+        let questionImageIDs: string[];
+        if (this.q.imageIDs.includes(',')) {
+          // console.log('split');
+          questionImageIDs = this.q.imageIDs.split(',');
+        } else {
+          // console.log('non-split');
+          questionImageIDs = [this.q.imageIDs];
+          // console.log(questionImageIDs);
+        }
+        this.q.Images = questionImageIDs.map((id: string) => {
+          const url = ImageService.getImageUrlById(id);
+          // console.log('Question image URL:', url);
+          return {
+            imageId: id,
+            url,
+          };
         });
+      }
+
+      // For each answer, get ImageIDs string and map to image URLs
+      for (const answer of this.answers) {
+        // console.log(this.answers);
+        if (answer.imageIDs) {
+          let answerImageIDs: string[];
+          if (answer.imageIDs.includes(',')) {
+            answerImageIDs = answer.ImageIDs.split(',');
+          } else {
+            answerImageIDs = [answer.imageIDs];
+          }
+          answer.images = answerImageIDs.map((id: string) => {
+            const url = ImageService.getImageUrlById(id);
+            // console.log('Answer image URL:', url);
+            return {
+              imageId: id,
+              url,
+            };
+          });
+        }
       }
     } catch (error) {
       console.error('Failed to load images', error);
     }
   }
-  file: File | null = null;
+  files: File[] = [];
 
   onFileSelected(event: any) {
-    this.file = event.target.files[0];
+    this.files = Array.from(event.target.files);
   }
 
   async submit() {
     try {
-      await AnswerService.create(this.id, this.text, this.file);
+      await AnswerService.create(this.id, this.text, this.files);
       this.msg = 'Answer submitted for approval';
       this.text = '';
-      this.file = null;
+      this.files = [];
     } catch (e: any) {
       this.msg = e?.response?.data || 'Failed';
     }

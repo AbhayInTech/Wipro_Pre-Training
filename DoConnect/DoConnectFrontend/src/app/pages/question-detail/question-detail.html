@@ -16,11 +16,11 @@
         <h6>Images:</h6>
         <div class="d-flex flex-wrap">
           <img
-            *ngFor="let img of q.Images; let i = index"
-            [src]="'http://localhost:5035/api/images/' + id + '/' + i"
+            *ngFor="let img of q.Images"
+            [src]="img.url"
             alt="Question Image"
             class="img-thumbnail me-2 mb-2"
-            style="max-width: 500px; max-height: 500px; width: 500px; height: auto"
+            style="width: 50vw; height: 50vh"
           />
         </div>
       </div>
@@ -46,11 +46,11 @@
           <h6>Images:</h6>
           <div class="d-flex flex-wrap">
             <img
-              *ngFor="let img of a.images; let i = index"
-              [src]="'http://localhost:5035/api/images/' + img.AnswerId + '/' + i"
+              *ngFor="let img of a.images"
+              [src]="img.url"
               alt="Answer Image"
               class="img-thumbnail me-2 mb-2"
-              style="max-width: 500px; max-height: 500px; width: 500px; height: auto"
+              style="max-width: 50vw; max-height: 50vh"
             />
           </div>
         </div>
@@ -76,8 +76,8 @@
           ></textarea>
         </div>
         <div class="mb-3">
-          <label class="form-label">Upload Image</label>
-          <input type="file" (change)="onFileSelected($event)" class="form-control" />
+          <label class="form-label">Upload Images</label>
+          <input type="file" (change)="onFileSelected($event)" class="form-control" multiple />
         </div>
         <button type="submit" class="btn btn-success">
           <i class="bi bi-send"></i> Submit Answer

@@ -27,10 +27,11 @@ public class ApplicationDbContext : DbContext
         b.Entity<Answer>()
             .HasOne(a => a.Question).WithMany(q => q.Answers).HasForeignKey(a => a.QuestionId);
 
-        b.Entity<Image>()
-            .HasOne(i => i.Question).WithMany(q => q.Images).HasForeignKey(i => i.QuestionId).OnDelete(DeleteBehavior.NoAction);
+        // Removed navigation properties for Images as they no longer exist in Question and Answer models
+        // b.Entity<Image>()
+        //     .HasOne(i => i.Question).WithMany(q => q.Images).HasForeignKey(i => i.QuestionId).OnDelete(DeleteBehavior.NoAction);
 
-        b.Entity<Image>()
-            .HasOne(i => i.Answer).WithMany(a => a.Images).HasForeignKey(i => i.AnswerId).OnDelete(DeleteBehavior.NoAction);
+        // b.Entity<Image>()
+        //     .HasOne(i => i.Answer).WithMany(a => a.Images).HasForeignKey(i => i.AnswerId).OnDelete(DeleteBehavior.NoAction);
     }
 }

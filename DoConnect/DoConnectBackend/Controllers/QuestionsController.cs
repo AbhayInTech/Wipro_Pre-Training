@@ -34,7 +34,7 @@ public class QuestionsController : ControllerBase
     {
         var q = await _db.Questions
             .Include(x => x.User).Include(x => x.Answers).ThenInclude(a => a.User)
-            .Include(x => x.Images)
+            //.Include(x => x.Images) // Removed as Images property no longer exists
             .FirstOrDefaultAsync(x => x.QuestionId == id);
 
         if (q == null)
@@ -54,7 +54,7 @@ public class QuestionsController : ControllerBase
                 a.Text,
                 User = new { a.User.UserId, a.User.Username }
             }).ToList(),
-            Images = q.Images.Select(img => new { img.ImageId, img.Path }).ToList()
+            ImageIDs = q.ImageIDs // Return ImageIDs string instead of Images collection
         };
 
         return Ok(result);
@@ -70,12 +70,17 @@ public class QuestionsController : ControllerBase
         var questionId = "q" + nextId;
         var q = new Question { QuestionId = questionId, Title = req.Title, Text = req.Text, UserId = userId, Status = "Pending" };
 
+        _db.Questions.Add(q);
+        await _db.SaveChangesAsync();
+
         // Handle image uploads
         var uploadsDir = Path.Combine("wwwroot", "uploads");
         if (!Directory.Exists(uploadsDir))
         {
             Directory.CreateDirectory(uploadsDir);
         }
+
+        var imageIDs = new List<string>();
 
         foreach (var file in req.Images)
         {
@@ -87,11 +92,14 @@ public class QuestionsController : ControllerBase
                 {
                     await file.CopyToAsync(stream);
                 }
-                q.Images.Add(new Image { Path = "/uploads/" + fileName });
+                var img = new Image { Path = "/uploads/" + fileName, QuestionId = questionId };
+                img.ImageID = Guid.NewGuid().ToString();
+                _db.Images.Add(img);
+                imageIDs.Add(img.ImageID);
             }
         }
 
-        _db.Questions.Add(q);
+        q.ImageIDs = string.Join(',', imageIDs);
         await _db.SaveChangesAsync();
 
         // Prevent JSON serialization cycle by returning minimal data
@@ -101,11 +109,7 @@ public class QuestionsController : ControllerBase
             q.Title,
             q.Text,
             q.Status,
-            Images = q.Images.Select(img => new
-            {
-                img.ImageId,
-                Path = img.Path.StartsWith("http") ? img.Path : $"http://localhost:5035{img.Path}"
-            }).ToList()
+            ImageIDs = q.ImageIDs
         };
 
         return CreatedAtAction(nameof(Get), new { id = q.QuestionId }, result);
