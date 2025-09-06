@@ -1,16 +1,19 @@
-import { TestBed } from '@angular/core/testing';
-
 import { QuestionService } from './question-service';
 
 describe('QuestionService', () => {
-  let service: QuestionService;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(QuestionService);
+  it('should have list method', () => {
+    expect(typeof QuestionService.list).toBe('function');
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('should have get method', () => {
+    expect(typeof QuestionService.get).toBe('function');
+  });
+
+  it('should have search method', () => {
+    expect(typeof QuestionService.search).toBe('function');
+  });
+
+  it('should have create method', () => {
+    expect(typeof QuestionService.create).toBe('function');
   });
 });

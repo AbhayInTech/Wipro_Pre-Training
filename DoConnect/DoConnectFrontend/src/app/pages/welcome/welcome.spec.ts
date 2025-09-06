@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 import { Welcome } from './welcome';
 
@@ -8,9 +11,17 @@ describe('Welcome', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Welcome]
-    })
-    .compileComponents();
+      imports: [Welcome, RouterTestingModule],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: of({}),
+            queryParams: of({}),
+          },
+        },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Welcome);
     component = fixture.componentInstance;

@@ -1,16 +1,29 @@
-import { TestBed } from '@angular/core/testing';
-
 import { AuthService } from './auth-service';
 
 describe('AuthService', () => {
-  let service: AuthService;
+  let authService: AuthService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(AuthService);
+    authService = new AuthService();
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('should have isLoggedIn property', () => {
+    expect('isLoggedIn' in authService).toBeTrue();
+  });
+
+  it('should have role property', () => {
+    expect('role' in authService).toBeTrue();
+  });
+
+  it('should have token property', () => {
+    expect('token' in authService).toBeTrue();
+  });
+
+  it('should have authHeader property', () => {
+    expect('authHeader' in authService).toBeTrue();
+  });
+
+  it('should have logout method', () => {
+    expect(typeof authService.logout).toBe('function');
   });
 });
