@@ -33,7 +33,9 @@
 
         <!-- Admin link visible only if role=Admin -->
         <li class="nav-item" *ngIf="role === 'Admin'">
-          <a class="nav-link" routerLink="/admin" (click)="collapseNavbar()">Admin</a>
+          <a class="nav-link" routerLink="/admin" (click)="collapseNavbar()"
+            >Admin <span class="badge bg-danger" *ngIf="hasNewNotifications">!</span></a
+          >
         </li>
 
         <!-- Authentication Links -->

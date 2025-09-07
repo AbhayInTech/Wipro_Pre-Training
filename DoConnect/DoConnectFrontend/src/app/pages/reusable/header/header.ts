@@ -1,6 +1,7 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { authService } from '../../../services/auth-service';
+import { notificationService } from '../../../services/notification-service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.css',
   encapsulation: ViewEncapsulation.None,
 })
-export class Header {
+export class Header implements OnInit {
   isCollapsed = true;
 
   get isLoggedIn() {
@@ -25,7 +26,20 @@ export class Header {
     return authService.role ? authService.role + ' User' : 'User';
   }
 
+  get hasNewNotifications() {
+    return notificationService.hasNewNotifications;
+  }
+
   constructor(private router: Router) {}
+
+  async ngOnInit() {
+    if (this.role === 'Admin') {
+      await notificationService.joinGroup('Admin');
+      notificationService.onNotificationReceived((user, message) => {
+        notificationService.hasNewNotifications = true;
+      });
+    }
+  }
 
   toggleNavbar() {
     this.isCollapsed = !this.isCollapsed;

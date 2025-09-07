@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../../services/admin-service';
+import { notificationService } from '../../services/notification-service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -20,6 +21,7 @@ export class Admin implements OnInit {
   totalQuestions: number = 0;
   async ngOnInit() {
     await this.refresh();
+    notificationService.hasNewNotifications = false;
   }
   async refresh() {
     this.pq = await AdminService.pendingQuestions();

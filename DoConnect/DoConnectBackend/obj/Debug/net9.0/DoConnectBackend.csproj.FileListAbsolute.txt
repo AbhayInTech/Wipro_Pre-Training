@@ -236,3 +236,5 @@ D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\obj\Debug\net9.0\compressed\krx
 D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\obj\Debug\net9.0\compressed\u7pobcwsin-jfsiqqwiad.gz
 D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\bin\Debug\net9.0\Tests\obj\DoConnectBackend.Tests.csproj.nuget.dgspec.json
 D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\bin\Debug\net9.0\Tests\obj\project.assets.json
+D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\bin\Debug\net9.0\Newtonsoft.Json.dll
+D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\bin\Debug\net9.0\System.Net.WebSockets.WebSocketProtocol.dll

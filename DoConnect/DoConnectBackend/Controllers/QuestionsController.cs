@@ -1,9 +1,11 @@
 using DoConnectBackend.Data;
 using DoConnectBackend.Dtos;
+using DoConnectBackend.Hubs;
 using DoConnectBackend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
 using System.Security.Claims;
@@ -15,7 +17,8 @@ namespace DoConnectBackend.Controllers;
 public class QuestionsController : ControllerBase
 {
     private readonly ApplicationDbContext _db;
-    public QuestionsController(ApplicationDbContext db) { _db = db; }
+    private readonly IHubContext<NotificationHub> _hub;
+    public QuestionsController(ApplicationDbContext db, IHubContext<NotificationHub> hub) { _db = db; _hub = hub; }
 
     [HttpGet]
     public async Task<IEnumerable<object>> GetAll([FromQuery] bool includePending = false)
@@ -65,13 +68,14 @@ public class QuestionsController : ControllerBase
     public async Task<ActionResult> Create([FromForm] CreateQuestionRequest req)
     {
         var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "0");
-        var lastQuestion = await _db.Questions.OrderByDescending(q => q.QuestionId).FirstOrDefaultAsync();
-        var nextId = lastQuestion != null ? int.Parse(lastQuestion.QuestionId.Substring(1)) + 1 : 1;
-        var questionId = "q" + nextId;
+        var questionId = Guid.NewGuid().ToString();
         var q = new Question { QuestionId = questionId, Title = req.Title, Text = req.Text, UserId = userId, Status = "Pending" };
 
         _db.Questions.Add(q);
         await _db.SaveChangesAsync();
+
+        // Send notification to admin group about new pending question
+        await _hub.Clients.Group("Admin").SendAsync("ReceiveNotification", "System", $"New pending question: {q.Title}");
 
         // Handle image uploads
         var uploadsDir = Path.Combine("wwwroot", "uploads");
