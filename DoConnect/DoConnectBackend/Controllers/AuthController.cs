@@ -43,6 +43,15 @@ public class AuthController : ControllerBase
             return Unauthorized("Invalid credentials.");
 
         var token = _tokens.Create(user);
+
+        // Set session
+        if (HttpContext != null)
+        {
+            HttpContext.Session.SetString("userId", user.UserId.ToString());
+            HttpContext.Session.SetString("username", user.Username);
+            HttpContext.Session.SetString("role", user.Role);
+        }
+
         return new AuthResponse(token, user.Username, user.Role);
     }
 }

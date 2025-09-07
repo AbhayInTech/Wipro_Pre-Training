@@ -10,6 +10,7 @@ import { Welcome } from './pages/welcome/welcome';
 import { AuthGuard } from './guards/auth-guard';
 import { AdminGuard } from './guards/admin-guard';
 import { ManageUser } from './pages/manage-user/manage-user';
+import { NotFound } from './pages/not-found/not-found';
 
 export const routes: Routes = [
   { path: 'ask', component: Ask, canActivate: [AuthGuard] },
@@ -20,6 +21,7 @@ export const routes: Routes = [
   { path: 'q/:id', component: QuestionDetail, canActivate: [AuthGuard] },
   { path: 'admin', component: Admin, canActivate: [AdminGuard] },
   { path: 'manage', component: ManageUser, canActivate: [AdminGuard] },
+  { path: '**', component: NotFound },
 ];
 
 // @NgModule({ imports: [RouterModule.forRoot(routes)], exports: [RouterModule] })

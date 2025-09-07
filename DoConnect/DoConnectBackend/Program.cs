@@ -53,6 +53,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 builder.Services.AddAuthorization();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("frontend", p => p
@@ -69,6 +76,7 @@ app.UseSwaggerUI();
 
 app.UseStaticFiles();              // serve wwwroot/uploads
 app.UseCors("frontend");
+app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 

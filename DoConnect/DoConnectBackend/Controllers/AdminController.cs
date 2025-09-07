@@ -1,4 +1,6 @@
+using BCrypt.Net;
 using DoConnectBackend.Data;
+using DoConnectBackend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +14,9 @@ public class AdminController : ControllerBase
 {
     private readonly ApplicationDbContext _db;
     public AdminController(ApplicationDbContext db) { _db = db; }
+
+    public record AddUserRequest(string Username, string Password, string? Role);
+    public record UpdateUserRequest(string? Username, string? Password, string? Role);
 
     [HttpGet("pending/questions")]
     public async Task<object> PendingQuestions() =>
@@ -170,5 +175,37 @@ public class AdminController : ControllerBase
         });
 
         return Ok(result);
+    }
+
+    [HttpPost("user")]
+    public async Task<IActionResult> AddUser([FromBody] AddUserRequest req)
+    {
+        if (await _db.Users.AnyAsync(u => u.Username == req.Username))
+            return BadRequest("Username already exists.");
+
+        var user = new User
+        {
+            Username = req.Username,
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword(req.Password),
+            Role = req.Role ?? "User"
+        };
+        _db.Users.Add(user);
+        await _db.SaveChangesAsync();
+        return Ok(new { user.UserId, user.Username, user.Role });
+    }
+
+    [HttpPut("user/{id}")]
+    public async Task<IActionResult> UpdateUser(string id, [FromBody] UpdateUserRequest req)
+    {
+        if (!int.TryParse(id, out var userId)) return BadRequest("Invalid user ID");
+        var user = await _db.Users.FindAsync(userId);
+        if (user is null) return NotFound();
+
+        if (!string.IsNullOrWhiteSpace(req.Username)) user.Username = req.Username;
+        if (!string.IsNullOrWhiteSpace(req.Password)) user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(req.Password);
+        if (!string.IsNullOrWhiteSpace(req.Role)) user.Role = req.Role;
+
+        await _db.SaveChangesAsync();
+        return Ok(new { user.UserId, user.Username, user.Role });
     }
 }
