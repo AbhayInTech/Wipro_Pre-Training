@@ -14,7 +14,7 @@ export class App {
 
   constructor() {
     if (notificationService.hasNewNotifications) {
-      // You can add global notification handling logic here if needed
+      //add global notification handling logic here
     }
   }
 }
