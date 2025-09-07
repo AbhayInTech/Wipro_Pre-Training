@@ -234,7 +234,7 @@ D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\obj\Debug\net9.0\compressed\pyz
 D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\obj\Debug\net9.0\compressed\lgxc9l4bta-qlccset4i1.gz
 D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\obj\Debug\net9.0\compressed\krx77rqykm-xzw0cte36n.gz
 D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\obj\Debug\net9.0\compressed\u7pobcwsin-jfsiqqwiad.gz
-D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\bin\Debug\net9.0\Tests\obj\DoConnectBackend.Tests.csproj.nuget.dgspec.json
-D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\bin\Debug\net9.0\Tests\obj\project.assets.json
 D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\bin\Debug\net9.0\Newtonsoft.Json.dll
 D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\bin\Debug\net9.0\System.Net.WebSockets.WebSocketProtocol.dll
+D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\bin\Debug\net9.0\Castle.Core.dll
+D:\Wipro_Pre-Training\DoConnect\DoConnectBackend\bin\Debug\net9.0\Moq.dll

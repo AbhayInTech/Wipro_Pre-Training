@@ -43,6 +43,13 @@ public class QuestionsController : ControllerBase
         if (q == null)
             return NotFound();
 
+        // Fix possible null dereference warning by checking q.User and q.Answers
+        if (q.User == null)
+            return NotFound("User not found for question.");
+
+        if (q.Answers == null)
+            q.Answers = new List<Answer>();
+
         // Prevent JSON serialization cycle by returning minimal data
         var result = new
         {
@@ -50,12 +57,12 @@ public class QuestionsController : ControllerBase
             q.Title,
             q.Text,
             q.Status,
-            User = q.User != null ? new { q.User.UserId, q.User.Username } : null,
+            User = new { q.User!.UserId, q.User!.Username },
             Answers = q.Answers.Select(a => new
             {
                 a.AnswerId,
                 a.Text,
-                User = new { a.User.UserId, a.User.Username }
+                User = a.User != null ? new { a.User.UserId, a.User.Username } : null
             }).ToList(),
             ImageIDs = q.ImageIDs // Return ImageIDs string instead of Images collection
         };
@@ -67,7 +74,7 @@ public class QuestionsController : ControllerBase
     [HttpPost]
     public async Task<ActionResult> Create([FromForm] CreateQuestionRequest req)
     {
-        var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "0");
+        var userId = int.Parse(User!.FindFirstValue(ClaimTypes.NameIdentifier) ?? "0");
         var questionId = Guid.NewGuid().ToString();
         var q = new Question { QuestionId = questionId, Title = req.Title, Text = req.Text, UserId = userId, Status = "Pending" };
 
