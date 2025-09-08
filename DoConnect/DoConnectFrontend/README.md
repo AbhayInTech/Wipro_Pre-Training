@@ -1,59 +1,158 @@
-# DoConnectFrontend
+# DoConnect
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.6.
+DoConnect is a full-stack application built with .NET Core for the backend and Angular for the frontend. It includes features for user authentication, role-based access, and real-time notifications using SignalR.
 
-## Development server
+## Quick Start
 
-To start a local development server, run:
+1. Ensure prerequisites are installed (.NET 9 SDK, Node.js, SQL Server, Angular CLI).
+2. Set up the database (run migrations or execute `Database_Schema_DoConnect.sql`).
+3. Start the backend: `cd DoConnectBackend && dotnet run` (runs on https://localhost:7163).
+4. Start the frontend: `cd DoConnectFrontend && npm start` (runs on http://localhost:4200).
+5. Open http://localhost:4200 in your browser.
 
-```bash
-ng serve
-```
+## Prerequisites
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Before running the application, ensure you have the following installed:
 
-## Code scaffolding
+- [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
+- [Node.js](https://nodejs.org/) (version 18 or higher) and npm
+- [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) or another compatible database
+- [Angular CLI](https://angular.dev/tools/cli) (install globally with `npm install -g @angular/cli`)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Project Structure
 
-```bash
-ng generate component component-name
-```
+- `DoConnectBackend/`: .NET Core Web API backend
+- `DoConnectFrontend/`: Angular frontend application
+- `TestApp.Tests/`: Unit tests for the backend
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Backend Setup
 
-```bash
-ng generate --help
-```
+1. Navigate to the backend directory:
 
-## Building
+   ```bash
+   cd DoConnectBackend
+   ```
 
-To build the project run:
+2. Restore NuGet packages:
 
-```bash
-ng build
-```
+   ```bash
+   dotnet restore
+   ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+3. Update the database connection string in `appsettings.json`:
 
-## Running unit tests
+   ```json
+   "ConnectionStrings": {
+     "DefaultConnection": "Server=your-server;Database=DoConnectDb;Trusted_Connection=True;TrustServerCertificate=True;"
+   }
+   ```
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+4. Run database migrations to create the database schema:
 
-```bash
-ng test
-```
+   ```bash
+   dotnet ef database update
+   ```
 
-## Running end-to-end tests
+   Alternatively, you can execute the provided SQL script `Database_Schema_DoConnect.sql` in your SQL Server to set up the database schema manually.
 
-For end-to-end (e2e) testing, run:
+5. Start the backend server:
 
-```bash
-ng e2e
-```
+   ```bash
+   dotnet run
+   ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+   The backend will run on `https://localhost:7163` (or `http://localhost:5035` if HTTPS is disabled). You can access the Swagger UI at `https://localhost:7163/swagger`.
 
-## Additional Resources
+## Frontend Setup
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Navigate to the frontend directory:
+
+   ```bash
+   cd DoConnectFrontend
+   ```
+
+2. Install npm dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the Angular development server:
+
+   ```bash
+   npm start
+   ```
+
+   The frontend will run on `http://localhost:4200`.
+
+## Running the Application
+
+1. Ensure the backend is running (step 5 above).
+2. Ensure the frontend is running (step 3 above).
+3. Open your browser and navigate to `http://localhost:4200`.
+4. The application should load, and you can register/login as a user or admin.
+
+## API Endpoints
+
+### AuthController
+
+- `POST /api/auth/register` - Register a new user
+- `POST /api/auth/login` - Login a user
+
+### AdminController
+
+- `GET /api/admin/pending/questions` - Get pending questions
+- `GET /api/admin/pending/answers` - Get pending answers
+- `GET /api/admin/rejected/questions` - Get rejected questions
+- `GET /api/admin/rejected/answers` - Get rejected answers
+- `GET /api/admin/approved/questions` - Get approved questions
+- `GET /api/admin/approved/answers` - Get approved answers
+- `POST /api/admin/approve/question/{id}` - Approve a question
+- `POST /api/admin/reject/question/{id}` - Reject a question
+- `POST /api/admin/approve/answer/{id}` - Approve an answer
+- `POST /api/admin/reject/answer/{id}` - Reject an answer
+- `DELETE /api/admin/question/{id}` - Delete a question
+- `DELETE /api/admin/answer/{id}` - Delete an answer
+- `GET /api/admin/total/users` - Get total users count
+- `GET /api/admin/total/questions` - Get total questions count
+- `GET /api/admin/users` - Get all users
+- `DELETE /api/admin/user/{id}` - Delete a user
+- `GET /api/admin/questions-with-answers-and-users` - Get questions with answers and users
+- `POST /api/admin/user` - Add a user
+- `PUT /api/admin/user/{id}` - Update a user
+
+### AnswersController
+
+- `GET /api/answers/by-question/{questionId}` - Get answers for a question
+- `POST /api/answers` - Create a new answer
+
+### ImagesController
+
+- `POST /api/images/upload` - Upload an image
+- `GET /api/images/{id}/{index?}` - Get image by ID and index
+- `GET /api/images/by-imageid/{imageId}` - Get image by image ID
+- `GET /api/images/by-question-or-answer` - Get images by question or answer ID
+
+### QuestionsController
+
+- `GET /api/questions` - Get all questions
+- `GET /api/questions/{id}` - Get a specific question
+- `POST /api/questions` - Create a new question
+- `GET /api/questions/search` - Search questions
+
+## Additional Notes
+
+- The backend uses JWT for authentication and session management.
+- CORS is configured to allow requests from `http://localhost:4200`.
+- SignalR is used for real-time notifications.
+- Unit tests can be run from the `TestApp.Tests` directory using `dotnet test`.
+
+## Troubleshooting
+
+- If you encounter database connection issues, verify your SQL Server instance is running and the connection string is correct.
+- Ensure ports 7163 (backend HTTPS), 5035 (backend HTTP), and 4200 (frontend) are not in use by other applications.
+- For HTTPS issues, you may need to trust the development certificate: `dotnet dev-certs https --trust`.
+
+## Contributing
+
+Please follow the existing code style and add tests for new features.
